@@ -237,4 +237,4 @@ Professional engineering practices
 Long-term Open Source sustainability
 Teaching and learning.
 
-Read the project documents, especially MASTER_PROMPT.md, PROJECT_STATE.md, ARCHITECTURE.md, and NEXT_SESSION.md. Continue exactly from there.
+Read the project documents, especially MASTER_BLUEPRINT.md, PROJECT_STATE.md, ARCHITECTURE.md, and NEXT_SESSION.md. Continue exactly from there.
