@@ -10,3 +10,13 @@
 
 
 
+## [Unreleased]
+
+### Added
+- Centralized logging framework.
+- Console and file logging.
+- Automatic log directory creation.
+- Shared `get_logger()` helper.
+- Logging integrated into the `doctor` command.
+
+
