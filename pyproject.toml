@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cyberatlas"
 version = "0.1.0"
-description = "A modular, AI-assisted Cyber Security Assistant for learning, CTFs, HTB, Bug Bounty and SOC investigations."
+description = "A modular, AI-assisted Cyber Security Platform for learning, CTFs, HTB, Bug Bounty, DFIR and SOC operations."
 readme = "README.md"
 requires-python = ">=3.13"
 license = { text = "Apache License 2.0" }
