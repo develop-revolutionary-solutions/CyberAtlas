@@ -340,3 +340,28 @@ The changelog should always describe **what changed** and **why**, rather than l
 - Logging integrated into the `doctor` command.
 
 
+## [Unreleased]
+
+### Added
+- Professional `.gitignore` for Python development.
+- Initial Makefile with common development commands.
+- Standardized local development workflow.
+- Repository foundation improvements for future milestones.
+
+### Changed
+- Moved `CHANGELOG.md` into the `docs/` directory.
+- Finalized repository and documentation structure for v0.1.
+
+
+
+## Configuration System
+
+### Added
+- Centralized configuration schema
+- Development configuration overrides
+- Custom configuration exception hierarchy
+- Secure YAML configuration loader
+- Configuration validator with schema and type checking
+
+
+

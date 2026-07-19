@@ -714,3 +714,18 @@ Every line of code added to CyberAtlas should answer three questions:
 3. Does it improve scalability?
 
 If the answer is "No" to any of these, reconsider the implementation before merging it.
+
+
+## Internal Package Name
+
+The internal Python package is currently named `assistant`.
+
+This is an implementation detail.
+
+The public identity of the project is:
+
+- Project: CyberAtlas
+- CLI: cyberatlas
+- Repository: CyberAtlas
+
+The package name may be renamed in a future major release if there is sufficient architectural benefit.
