@@ -365,3 +365,17 @@ The changelog should always describe **what changed** and **why**, rather than l
 
 
 
+## Configuration System
+
+### Added
+- Centralized `ConfigManager` for application configuration.
+- Recursive configuration merging.
+- Dot-notation configuration access.
+- Configuration caching and reload support.
+- Deep-copy protection for exported configuration.
+
+### Improved
+- Unified configuration loading workflow.
+- Integrated configuration lifecycle logging.
+
+
