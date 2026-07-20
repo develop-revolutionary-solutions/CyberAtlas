@@ -365,3 +365,34 @@ The changelog should always describe **what changed** and **why**, rather than l
 
 
 
+## Configuration System
+
+### Added
+- Centralized `ConfigManager` for application configuration.
+- Recursive configuration merging.
+- Dot-notation configuration access.
+- Configuration caching and reload support.
+- Deep-copy protection for exported configuration.
+
+### Improved
+- Unified configuration loading workflow.
+- Integrated configuration lifecycle logging.
+
+
+## Packaging
+
+### Added
+- Explicit setuptools package discovery.
+- Editable installation support.
+- Console entry point via `cyberatlas`.
+
+### Changed
+- Updated project license to SPDX format (`Apache-2.0`).
+- Restricted package discovery to the Python package only.
+
+### Verified
+- Editable installation (`pip install -e .`).
+- CLI entry point.
+- Dependency resolution.
+
+
