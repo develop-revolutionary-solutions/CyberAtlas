@@ -17,6 +17,8 @@ It does NOT:
 
 from pathlib import Path
 
+from typing import Any
+
 import yaml
 
 from assistant.config.exceptions import (
@@ -34,7 +36,7 @@ class ConfigLoader:
     """
 
     @staticmethod
-    def load(path: str | Path) -> dict:
+    def load(path: str | Path) -> dict[str, Any]:
         """
         Load a YAML configuration file.
 

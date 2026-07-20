@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "A modular, AI-assisted Cyber Security Platform for learning, CTFs, HTB, Bug Bounty, DFIR and SOC operations."
 readme = "README.md"
 requires-python = ">=3.13"
-license = { text = "Apache License 2.0" }
+license = "Apache-2.0"
 
 authors = [
     { name = "Siddarudreswara S" }
@@ -41,3 +41,19 @@ cyberatlas = "assistant.__main__:app"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+
+[tool.setuptools.packages.find]
+include = ["assistant*"]
+exclude = [
+    "tests*",
+    "assets*",
+    "configs*",
+    "docs*",
+    "evidence*",
+    "logs*",
+    "notes*",
+    "scripts*",
+    "templates*",
+    "writeups*"
+]
