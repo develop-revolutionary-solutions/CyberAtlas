@@ -44,7 +44,8 @@ pythonpath = ["."]
 
 
 [tool.setuptools.packages.find]
-include = ["assistant*"]
+include-package-data = true
+include = ["assistant", "assistant.*"]
 exclude = [
     "tests*",
     "assets*",
