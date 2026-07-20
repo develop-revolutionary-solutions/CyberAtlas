@@ -396,3 +396,19 @@ The changelog should always describe **what changed** and **why**, rather than l
 - Dependency resolution.
 
 
+## Milestone 6 - ConfigLoader Testing
+
+### Added
+- Introduced pytest as the testing framework.
+- Configured development dependencies in pyproject.toml.
+- Created the initial tests/ package structure.
+- Added comprehensive unit tests for ConfigLoader.
+
+### Tests
+- Valid YAML loading.
+- Missing configuration file.
+- Invalid YAML syntax.
+- Empty YAML file handling.
+
+
+

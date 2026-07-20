@@ -32,7 +32,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=9.1.1"
+    "pytest>=8.0"
 ]
 
 [project.scripts]
@@ -42,9 +42,10 @@ cyberatlas = "assistant.__main__:app"
 testpaths = ["tests"]
 pythonpath = ["."]
 
+[tool.setuptools]
+include-package-data = true
 
 [tool.setuptools.packages.find]
-include-package-data = true
 include = ["assistant", "assistant.*"]
 exclude = [
     "tests*",

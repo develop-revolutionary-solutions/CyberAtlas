@@ -334,3 +334,15 @@ pytest
 # End Goal of Next Session
 
 Complete the first professional testing framework for CyberAtlas, ensuring the configuration subsystem is fully covered by automated tests before introducing additional platform features.
+
+
+
+Next Milestone
+
+Implement unit tests for ConfigValidator.
+
+Goals:
+- Validate correct configuration structures.
+- Reject malformed configurations.
+- Verify exception handling.
+- Expand automated test coverage.
