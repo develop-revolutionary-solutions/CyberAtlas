@@ -17,6 +17,7 @@ It does NOT:
 """
 
 from assistant.config.exceptions import ConfigurationValidationError
+from typing import Any
 
 
 class ConfigValidator:
@@ -61,7 +62,7 @@ class ConfigValidator:
     }
 
     @classmethod
-    def validate(cls, config: dict) -> None:
+    def validate(cls, config: dict[str, Any]) -> None:
         """
         Validate a CyberAtlas configuration dictionary.
 

@@ -346,3 +346,19 @@ Goals:
 - Reject malformed configurations.
 - Verify exception handling.
 - Expand automated test coverage.
+
+
+
+Next Milestone
+
+Refactor validator tests using pytest fixtures.
+
+Goals:
+- Introduce @pytest.fixture.
+- Remove duplicated configuration setup.
+- Ensure test isolation using deep copies.
+- Improve maintainability without changing behavior.
+
+
+
+
