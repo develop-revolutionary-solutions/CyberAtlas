@@ -1,6 +1,9 @@
-from assistant.config.manager import ConfigManager
 from copy import deepcopy
 from typing import Any
+from unittest.mock import patch
+
+from assistant.config.manager import ConfigManager
+
 
 
 def test_merge_dicts_overrides_values() -> None:
@@ -131,6 +134,140 @@ def test_all_returns_deep_copy(
     finally:
         ConfigManager._config = None
         ConfigManager._loaded = False
+
+
+
+def test_mock_example() -> None:
+    """
+    Demonstrate how unittest.mock.patch
+    replaces an object temporarily.
+    """
+
+    with patch(
+        "assistant.config.manager.ConfigLoader.load"
+    ) as mock_loader:
+
+        mock_loader.return_value = {
+            "application": {
+                "name": "CyberAtlas",
+            }
+        }
+
+        result = mock_loader("dummy.yaml")
+
+        assert result["application"]["name"] == "CyberAtlas"
+
+        mock_loader.assert_called_once_with("dummy.yaml")
+
+
+
+def test_load_calls_loader_and_validator() -> None:
+    """
+    ConfigManager.load should load, validate,
+    and cache the configuration.
+    """
+
+    ConfigManager._config = None
+    ConfigManager._loaded = False
+
+    config = {
+        "application": {
+            "name": "CyberAtlas",
+        }
+    }
+
+    with (
+        patch(
+            "assistant.config.manager.ConfigLoader.load"
+        ) as mock_loader,
+        patch(
+            "assistant.config.manager.ConfigValidator.validate"
+        ) as mock_validator,
+        patch(
+            "pathlib.Path.exists",
+            return_value=False,
+        ),
+    ):
+
+        mock_loader.return_value = config
+
+        ConfigManager.load()
+
+        mock_loader.assert_called_once()
+
+        mock_validator.assert_called_once_with(config)
+
+        assert ConfigManager._config == config
+        assert ConfigManager._loaded is True
+
+    ConfigManager._config = None
+    ConfigManager._loaded = False
+
+
+
+def test_load_does_not_reload_when_already_loaded() -> None:
+    """
+    ConfigManager.load should immediately return
+    when the configuration is already loaded.
+    """
+
+    ConfigManager._loaded = True
+    ConfigManager._config = {
+        "application": {
+            "name": "CyberAtlas",
+        }
+    }
+
+    try:
+        with (
+            patch(
+                "assistant.config.manager.ConfigLoader.load"
+            ) as mock_loader,
+            patch(
+                "assistant.config.manager.ConfigValidator.validate"
+            ) as mock_validator,
+        ):
+
+            ConfigManager.load()
+
+            mock_loader.assert_not_called()
+            mock_validator.assert_not_called()
+
+    finally:
+        ConfigManager._config = None
+        ConfigManager._loaded = False
+
+
+
+def test_reload_calls_load() -> None:
+    """
+    ConfigManager.reload should clear the cache
+    and invoke load() exactly once.
+    """
+
+    ConfigManager._config = {
+        "application": {
+            "name": "CyberAtlas",
+        }
+    }
+    ConfigManager._loaded = True
+
+    try:
+        with patch(
+            "assistant.config.manager.ConfigManager.load"
+        ) as mock_load:
+
+            ConfigManager.reload()
+
+            assert ConfigManager._config is None
+            assert ConfigManager._loaded is False
+
+            mock_load.assert_called_once()
+
+    finally:
+        ConfigManager._config = None
+        ConfigManager._loaded = False
+
 
 
 

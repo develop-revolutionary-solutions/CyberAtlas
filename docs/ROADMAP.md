@@ -501,3 +501,26 @@ This document must be reviewed:
 - Before introducing major architectural changes
 
 The roadmap should evolve with the project while remaining aligned with the architecture and vision.
+
+
+
+Foundation
+██████████ 100%
+
+Core Engine
+░░░░░░░░░░
+
+Plugin System
+░░░░░░░░░░
+
+Knowledge Base
+░░░░░░░░░░
+
+AI Layer
+░░░░░░░░░░
+
+Operational Modules
+░░░░░░░░░░
+
+
+
