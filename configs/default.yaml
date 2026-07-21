@@ -1,0 +1,28 @@
+# =============================================================================
+# CyberAtlas Default Configuration
+# =============================================================================
+
+application:
+  name: "CyberAtlas"
+  version: "0.1.0"
+  environment: "development"
+
+logging:
+  level: "INFO"
+  file: "logs/cyberatlas.log"
+
+engine:
+  timeout: 30
+  shell: false
+
+security:
+  safe_mode: true
+  allow_network_access: false
+
+workspace:
+  evidence_directory: "evidence"
+  reports_directory: "writeups"
+  notes_directory: "notes"
+
+tools:
+  auto_discovery: true

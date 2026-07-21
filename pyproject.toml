@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=83", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cyberatlas"
+version = "0.1.0"
+description = "A modular, AI-assisted Cyber Security Platform for learning, CTFs, HTB, Bug Bounty, DFIR and SOC operations."
+readme = "README.md"
+requires-python = ">=3.13"
+license = "Apache-2.0"
+
+authors = [
+    { name = "Siddarudreswara S" }
+]
+
+keywords = [
+    "cybersecurity",
+    "ctf",
+    "bugbounty",
+    "forensics",
+    "soc",
+    "python",
+    "security"
+]
+
+dependencies = [
+    "typer>=0.27.0",
+    "rich>=15.0.0",
+    "PyYAML>=6.0.3"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0"
+]
+
+[project.scripts]
+cyberatlas = "assistant.__main__:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["assistant", "assistant.*"]
+exclude = [
+    "tests*",
+    "assets*",
+    "configs*",
+    "docs*",
+    "evidence*",
+    "logs*",
+    "notes*",
+    "scripts*",
+    "templates*",
+    "writeups*"
+]
