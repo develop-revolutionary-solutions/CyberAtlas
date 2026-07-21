@@ -63,3 +63,68 @@ cyberatlas notes
 ## AI
 
 cyberatlas explain
+
+
+
+
+
+
+
+
+
+
+
+
+
+# CyberAtlas Commands
+
+## Doctor
+
+cyberatlas doctor
+
+Checks
+
+- Python
+- OS
+- Workspace
+- Installed Tools
+
+---
+
+## Inspect
+
+cyberatlas inspect file.bin
+
+Displays
+
+- File Type
+- Size
+- MD5
+- SHA1
+- SHA256
+- SHA512
+- Entropy
+- URLs
+- Emails
+- IP Addresses
+- Flags
+- Recommendations
+
+---
+
+## Planned
+
+cyberatlas workspace
+
+cyberatlas decode
+
+cyberatlas elf
+
+cyberatlas pe
+
+cyberatlas pcap
+
+cyberatlas web
+
+
+

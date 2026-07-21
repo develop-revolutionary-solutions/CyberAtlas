@@ -72,3 +72,38 @@
 ### Writeup
 
 - [ ] markdown template
+
+
+
+
+# HTB Sprint Tasks
+
+## Completed
+
+- [x] Configuration
+- [x] Logging
+- [x] CLI
+- [x] Testing Framework
+- [x] Doctor Command
+
+---
+
+## In Progress
+
+- [ ] Inspect
+
+---
+
+## Remaining
+
+- [ ] Workspace
+- [ ] Decode
+- [ ] ELF
+- [ ] PE
+- [ ] PCAP
+- [ ] Web
+- [ ] Notes
+- [ ] Writeup
+
+
+
