@@ -1,164 +1,66 @@
+from typing import Any
+
+
 import pytest
+
 
 from assistant.config.exceptions import ConfigurationValidationError
 from assistant.config.validator import ConfigValidator
 
 
-def test_validate_valid_configuration() -> None:
+def test_validate_valid_configuration(
+    valid_config: dict[str, Any],
+) -> None:
     """
     ConfigValidator should accept a valid configuration.
     """
 
-    config = {
-        "application": {
-            "name": "CyberAtlas",
-            "version": "0.1.0",
-            "environment": "development",
-        },
-        "logging": {
-            "level": "INFO",
-            "file": "cyberatlas.log",
-        },
-        "engine": {
-            "timeout": 30,
-            "shell": False,
-        },
-        "security": {
-            "safe_mode": True,
-            "allow_network_access": False,
-        },
-        "workspace": {
-            "evidence_directory": "evidence",
-            "reports_directory": "reports",
-            "notes_directory": "notes",
-        },
-        "tools": {
-            "auto_discovery": True,
-        },
-    }
-
-    ConfigValidator.validate(config)
+    ConfigValidator.validate(valid_config)
 
 
-def test_validate_missing_required_section() -> None:
+def test_validate_missing_required_section(
+    valid_config: dict[str, Any],
+) -> None:
+
     """
     ConfigValidator should raise ConfigurationValidationError
     when a required section is missing.
     """
 
-    # Arrange
-    config = {
-        "logging": {
-            "level": "INFO",
-            "file": "cyberatlas.log",
-        },
-        "engine": {
-            "timeout": 30,
-            "shell": False,
-        },
-        "security": {
-            "safe_mode": True,
-            "allow_network_access": False,
-        },
-        "workspace": {
-            "evidence_directory": "evidence",
-            "reports_directory": "reports",
-            "notes_directory": "notes",
-        },
-        "tools": {
-            "auto_discovery": True,
-        },
-    }
+    del valid_config["application"]
 
-    # Act / Assert
     with pytest.raises(
         ConfigurationValidationError,
         match=r"Missing required section: 'application'",
     ):
-        ConfigValidator.validate(config)
+        ConfigValidator.validate(valid_config)
 
 
-def test_validate_missing_required_key() -> None:
-    """
-    ConfigValidator should raise ConfigurationValidationError
-    when a required key is missing.
-    """
+def test_validate_missing_required_key(
+    valid_config: dict[str, Any],
+) -> None:
 
-    # Arrange
-    config = {
-        "application": {
-            "name": "CyberAtlas",
-            "version": "0.1.0",
-            "environment": "development",
-        },
-        "logging": {
-            "level": "INFO",
-            # "file" intentionally omitted
-        },
-        "engine": {
-            "timeout": 30,
-            "shell": False,
-        },
-        "security": {
-            "safe_mode": True,
-            "allow_network_access": False,
-        },
-        "workspace": {
-            "evidence_directory": "evidence",
-            "reports_directory": "reports",
-            "notes_directory": "notes",
-        },
-        "tools": {
-            "auto_discovery": True,
-        },
-    }
+    del valid_config["logging"]["file"]
 
-    # Act / Assert
     with pytest.raises(
         ConfigurationValidationError,
         match=r"Missing required key: 'logging\.file'",
     ):
-        ConfigValidator.validate(config)
+        ConfigValidator.validate(valid_config)
 
 
-def test_validate_invalid_type() -> None:
+def test_validate_invalid_type(
+    valid_config: dict[str, Any],
+) -> None:
     """
     ConfigValidator should raise ConfigurationValidationError
     when a configuration value has the wrong type.
     """
 
-    # Arrange
-    config = {
-        "application": {
-            "name": "CyberAtlas",
-            "version": "0.1.0",
-            "environment": "development",
-        },
-        "logging": {
-            "level": "INFO",
-            "file": "cyberatlas.log",
-        },
-        "engine": {
-            "timeout": "30",  # Should be int
-            "shell": False,
-        },
-        "security": {
-            "safe_mode": True,
-            "allow_network_access": False,
-        },
-        "workspace": {
-            "evidence_directory": "evidence",
-            "reports_directory": "reports",
-            "notes_directory": "notes",
-        },
-        "tools": {
-            "auto_discovery": True,
-        },
-    }
+    valid_config["engine"]["timeout"] = "30"
 
-    # Act / Assert
     with pytest.raises(
         ConfigurationValidationError,
         match=r"Invalid type for 'engine\.timeout'\. Expected int\.",
     ):
-        ConfigValidator.validate(config)
+        ConfigValidator.validate(valid_config)
