@@ -37,3 +37,12 @@ Run
 pytest
 
 before every commit.
+
+
+Include:
+
+Web module test
+Total tests = 29
+
+
+

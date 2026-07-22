@@ -8,6 +8,7 @@ from assistant.cli.decode import decode
 from assistant.cli.elf import elf
 from assistant.cli.pe import pe
 from assistant.cli.pcap import pcap
+from assistant.cli.web import web
 
 
 app = typer.Typer(
@@ -29,6 +30,7 @@ app.command()(decode)
 app.command()(elf)
 app.command()(pe)
 app.command()(pcap)
+app.command()(web)
 
 
 app.add_typer(

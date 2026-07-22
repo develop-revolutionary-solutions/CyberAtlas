@@ -287,3 +287,26 @@ Goal
 ----
 
 Deliver a production-quality HTB toolkit before the HTB competition.
+
+
+
+Start Crypto Module
+
+Workflow
+
+Service
+↓
+CLI
+↓
+Register CLI
+↓
+Manual Test
+↓
+Unit Tests
+↓
+compileall
+↓
+pytest
+
+
+

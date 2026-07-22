@@ -128,3 +128,6 @@ cyberatlas web
 
 
 
+cyberatlas web <url>
+
+

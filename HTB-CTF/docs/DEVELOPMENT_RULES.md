@@ -31,3 +31,22 @@ No background services.
 No database before competition.
 
 No Docker before competition.
+
+
+
+Service
+↓
+CLI
+↓
+Register
+↓
+Manual Test
+↓
+Unit Test
+↓
+compileall
+↓
+pytest
+
+
+
