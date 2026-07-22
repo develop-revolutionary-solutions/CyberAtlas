@@ -376,3 +376,68 @@ After HTB
 
 
 
+Last Updated
+------------
+2026-07-22
+
+Version
+-------
+v0.5.0-dev
+
+Completed Modules
+-----------------
+
+Foundation
+
+✔ Config
+✔ Logging
+✔ CLI
+✔ Testing
+
+Doctor
+✔
+
+Inspect
+✔
+
+Workspace
+✔
+
+Decode
+✔
+
+ELF
+✔
+
+PE
+✔
+
+PCAP
+✔
+
+Testing
+-------
+
+Passing
+
+Config Loader      4
+Config Manager    10
+Config Validator   4
+Decode             7
+ELF                1
+PE                 1
+PCAP               1
+
+Total
+
+28 Passing Tests
+
+Next Priority
+-------------
+
+1. Web
+2. Rules
+
+
+
+

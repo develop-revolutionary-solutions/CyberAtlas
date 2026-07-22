@@ -6,6 +6,8 @@ from assistant.cli.inspect import inspect
 from assistant.cli.workspace import workspace
 from assistant.cli.decode import decode
 from assistant.cli.elf import elf
+from assistant.cli.pe import pe
+from assistant.cli.pcap import pcap
 
 
 app = typer.Typer(
@@ -25,6 +27,8 @@ app.command()(inspect)
 app.command()(workspace)
 app.command()(decode)
 app.command()(elf)
+app.command()(pe)
+app.command()(pcap)
 
 
 app.add_typer(

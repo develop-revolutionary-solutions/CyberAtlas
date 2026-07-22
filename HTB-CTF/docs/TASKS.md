@@ -155,3 +155,21 @@ with automated recommendations and clean CLI output.
 
 
 
+Completed
+
+✔ PE
+✔ PE Tests
+
+✔ PCAP
+✔ PCAP Tests
+
+Current Sprint
+
+- Web
+- Web Tests
+- Rules
+- Rules Tests
+
+
+
+

@@ -198,3 +198,36 @@ Next
 
 
 
+## v0.5.0-dev
+
+### Added
+
+PE Module
+
+- PE Analyzer
+- PE CLI
+- ASLR detection
+- DEP detection
+- Section parsing
+- Import parsing
+- PE unit tests
+
+PCAP Module
+
+- PCAP Analyzer
+- PCAP CLI
+- Packet counting
+- Protocol detection
+- DNS extraction
+- HTTP host extraction
+- HTTP URI extraction
+- IPv4 extraction
+- PCAP unit tests
+
+### Testing
+
+28 tests passing
+
+
+
+
