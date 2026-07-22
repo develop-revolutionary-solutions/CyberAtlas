@@ -1,309 +1,422 @@
-# HTB CTF Roadmap
+# CyberAtlas Roadmap
+
+Version: v0.6.0-dev
+
+Branch: HTB-CTF
+
+Status: Active Development
+
+Last Updated: 2026-07-22
+
+---
+
+# Vision
+
+CyberAtlas is a modular, offline-first, AI-assisted Cyber Security Assistant built for learning, Capture The Flag (CTF), Hack The Box (HTB), Bug Bounty, Digital Forensics, Reverse Engineering, Malware Analysis, SOC Operations, and Penetration Testing.
+
+The long-term objective is to create a production-quality cybersecurity platform that evolves into a personal cybersecurity copilot.
+
+---
+
+# Design Principles
+
+The project follows these principles throughout development.
+
+- Offline First
+- Local First
+- Linux First
+- CPU Friendly
+- Open Source
+- Modular
+- Production Quality
+- Secure by Design
+- Beginner Friendly
+- Extensible
+
+---
+
+# Current Development Stage
+
+Current Branch
+
+```
+HTB-CTF
+```
+
+Current Version
+
+```
+v0.6.0-dev
+```
+
+Current Quality Gate
+
+```
+python -m compileall assistant
+
+PASS
+```
+
+```
+pytest
+
+29 passed
+0 failed
+```
+
+---
+
+# Completed Milestones
+
+## Foundation
+
+Status
+
+✅ Complete
+
+Implemented
+
+- Configuration Loader
+- Configuration Manager
+- Configuration Validator
+- Logging Framework
+- CLI Framework
+- Testing Framework
+
+---
+
+## HTB Toolkit
+
+Completed Modules
+
+| Module | Status |
+|----------|--------|
+| Doctor | ✅ |
+| Inspect | ✅ |
+| Workspace | ✅ |
+| Decode | ✅ |
+| ELF | ✅ |
+| PE | ✅ |
+| PCAP | ✅ |
+| Web | ✅ |
 
 ---
 
 # Phase 1
 
-Foundation
+## HTB Core Toolkit
 
-- CLI
-- Logging
-- Config
-- Tests
+Status
 
-Status:
+🟡 In Progress
 
-Completed
+Remaining Modules
+
+### Crypto
+
+Planned Features
+
+- Hash Identification
+- Hash Calculation
+- Hash Verification
+- Base Encodings
+- XOR Helper
+- Caesar Cipher
+- ROT Variants
+- Frequency Analysis
+- Common CTF Helpers
 
 ---
 
-# Phase 2
+### Networking
 
-Competition Sprint
+Planned Features
 
-Priority:
+- DNS Lookup
+- Reverse DNS
+- WHOIS
+- Port Scanner
+- Banner Grabbing
+- HTTP Client
+- TLS Information
+- IP Information
+- CIDR Helper
+- Socket Utilities
 
-★★★★★
+---
 
-Modules
+### Linux
 
-- Workspace
-- Identify
-- Hash
+Planned Features
+
+- File Permissions
+- Ownership
+- Archive Helpers
 - Strings
-- Decode
+- Hexdump
+- xxd
+- File Identification
+- Command Wrappers
+- Common HTB Helpers
 
 ---
 
-# Phase 3
+### Forensics
 
-Analysis
+Planned Features
 
-Priority:
-
-★★★★☆
-
-Modules
-
-- ELF
-- PE
-- PCAP
-- Entropy
+- File Timeline
+- Metadata
+- EXIF
+- Hash Comparison
+- IOC Extraction
+- Memory Helpers
+- Archive Inspection
+- Evidence Collection
 
 ---
 
-# Phase 4
+### Reverse Engineering Enhancements
 
-Automation
+Planned Features
 
-Priority:
-
-★★★☆☆
-
-Modules
-
-- Notes
-- Writeup
-- AI Explain
-
----
-
-# Phase 5
-
-Merge
-
-- Refactor
-- Documentation
-- Tests
-- Merge into CyberAtlas
-
-
-
-
-
-
-# CyberAtlas CTF Engine Roadmap
-
----
-
-# Phase 1 (Before HTB)
-
-Highest Priority
-
-- Doctor ✅
-- Inspect
-- Workspace
-- Decode
-- ELF
-- PE
-- PCAP
-- Web
+- Extended ELF Analysis
+- Extended PE Analysis
+- Strings Analysis
+- Section Entropy
+- Symbol Detection
+- Import Analysis
+- Export Analysis
+- Objdump Integration
+- Checksec Integration
+- GDB Helper
 
 ---
 
 # Phase 2
 
-Wrapper Commands
+## CTF Toolkit
 
-- nmap
-- ffuf
-- gobuster
-- binwalk
-- exiftool
-- tshark
-- readelf
-- checksec
+Planned Features
+
+- Challenge Tracker
+- Workspace Templates
+- Flag Tracker
+- Notes
+- Evidence Collection
+- Time Tracking
+- Category Management
+- Difficulty Tracking
 
 ---
 
 # Phase 3
 
-Automation
+## Bug Bounty Toolkit
 
-- Automatic Workspace
-- Notes
-- Evidence
-- Report Generation
+Planned Features
+
+- HTTP Enumeration
+- Header Analysis
+- Technology Detection
+- robots.txt Analysis
+- Sitemap Parser
+- Parameter Discovery
+- Screenshot Automation
+- Recon Helpers
 
 ---
 
 # Phase 4
 
-AI
+## Malware Analysis
 
-- Explain
-- Recommendations
-- Workflow Suggestions
+Planned Features
+
+- Strings
+- Hash Lookup
+- Entropy Analysis
+- File Classification
+- YARA Integration
+- IOC Collection
+- Static Analysis Helpers
 
 ---
 
 # Phase 5
 
-Post Competition
+## Digital Forensics
 
-- Refactoring
-- Documentation
-- Merge into CyberAtlas
+Planned Features
 
-
-
-Foundation
-████████████████████ 100%
-
-Inspect
-████████████████████ 100%
-
-Workspace
-████████████████████ 100%
-
-Decode
-██████████---------- 40%
-
-ELF
--------------------- 0%
-
-PE
--------------------- 0%
-
-PCAP
--------------------- 0%
-
-Web
--------------------- 0%
-
-Rules
--------------------- 0%
-
-
-
-
-
-# CyberAtlas HTB Roadmap
-
-## Phase 1 (Before HTB)
-
-Highest Priority
-
-✅ Doctor
-✅ Inspect
-✅ Workspace
-✅ Decode
-✅ ELF
-
-Remaining
-
-- PE
-- PCAP
-- Web
-- Rules
+- Disk Images
+- Memory Dumps
+- Registry Analysis
+- Timeline Generation
+- Evidence Tracking
+- Artifact Collection
 
 ---
 
-## Phase 2
+# Phase 6
 
-Wrapper Commands
+## SOC Toolkit
 
-- nmap
-- ffuf
-- gobuster
-- binwalk
-- exiftool
-- tshark
-- readelf
-- checksec
+Planned Features
+
+- Log Analysis
+- Sigma Rules
+- MITRE ATT&CK Mapping
+- IOC Search
+- Alert Investigation
+- Timeline Builder
+- Wazuh Integration
 
 ---
 
-## Phase 3
+# Phase 7
 
-Automation
+## AI Integration
 
-- Automatic Notes
-- Evidence Collection
+Planned Features
+
+- Local Ollama Integration
+- Investigation Assistant
+- Command Explanation
+- Malware Explanation
 - Report Generation
+- Investigation Summaries
+- Playbook Suggestions
 
 ---
 
-## Phase 4
+# Development Workflow
 
-AI
+Every module follows the same implementation lifecycle.
 
-- Explain
-- Recommendations
-- Workflow Suggestions
+```
+Service
+
+↓
+
+CLI
+
+↓
+
+Register CLI
+
+↓
+
+Manual Testing
+
+↓
+
+Unit Tests
+
+↓
+
+python -m compileall assistant
+
+↓
+
+pytest
+
+↓
+
+Documentation Update
+
+↓
+
+Git Commit
+
+↓
+
+Next Module
+```
 
 ---
 
-## Phase 5
+# Documentation Workflow
 
-Post Competition
+Every completed module requires updates to:
 
-- Refactor
-- Improve Tests
-- Documentation
-- Merge into CyberAtlas Main
+- CHANGELOG.md
+- PROJECT_STATE.md
+- TASKS.md
+- ROADMAP.md
+- NEXT_SESSION.md
+- SESSION_CONTEXT.md
+- TESTING_PLAN.md
+- COMMAND_REFERENCE.md
+- README.md
+- ARCHITECTURE.md
+- LESSONS_LEARNED.md
+- DEVELOPMENT_RULES.md
+- MASTER_PROMPT.md
 
 ---
 
-Progress
+# Current Priority
 
-Foundation
-████████████████████ 100%
+Current Module
 
-Inspect
-████████████████████ 100%
+```
+Crypto
+```
 
-Workspace
-████████████████████ 100%
+Current Objective
 
-Decode
-████████████████████ 100%
+Implement the Crypto module using the standard CyberAtlas implementation workflow while maintaining:
 
-ELF
-████████████████████ 100%
+- Production-quality code
+- Linux compatibility
+- CPU efficiency
+- Backward compatibility
+- 100% passing tests
 
-PE
--------------------- 0%
+---
 
-PCAP
--------------------- 0%
+# Long-Term Vision
 
-Web
--------------------- 0%
+Version 1
 
-Rules
--------------------- 0%
+HTB Toolkit
 
+Version 2
 
+CTF Assistant
 
+Version 3
 
-Foundation
-████████████████████ 100%
+Bug Bounty Assistant
 
-Inspect
-████████████████████ 100%
+Version 4
 
-Workspace
-████████████████████ 100%
+SOC Assistant
 
-Decode
-████████████████████ 100%
+Version 5
 
-ELF
-████████████████████ 100%
+Digital Forensics Assistant
 
-PE
-████████████████████ 100%
+Version 6
 
-PCAP
-████████████████████ 100%
+Malware Analysis Assistant
 
-Web
--------------------- 0%
+Version 7
 
-Rules
--------------------- 0%
+AI-Powered Cyber Security Copilot
 
+---
 
+# Success Criteria
 
-Advance HTB implementation progress and remove "Web" from pending work.
+CyberAtlas will be considered successful when it:
+
+- Provides practical assistance during HTB and CTF challenges.
+- Automates repetitive cybersecurity workflows.
+- Runs efficiently on CPU-only hardware.
+- Operates offline wherever practical.
+- Maintains a modular architecture.
+- Passes all automated tests.
+- Serves as a portfolio-quality open-source project.
+- Continues evolving into a comprehensive cybersecurity platform.

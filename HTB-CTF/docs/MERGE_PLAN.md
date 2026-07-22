@@ -1,375 +1,345 @@
-# MERGE_PLAN.md
+# CyberAtlas Merge Plan
 
-# HTB-CTF-Assistant → CyberAtlas Merge Strategy
+Version: v0.6.0-dev
 
-Version: 1.0
-Status: Active
-Owner: Siddarudreswara S
+Branch: HTB-CTF
+
+Status: Active Development
+
+Last Updated: 2026-07-22
 
 ---
 
 # Purpose
 
-This document defines how experimental features developed in the HTB-CTF-Assistant repository will be evaluated, refined, and merged into the main CyberAtlas project.
+This document defines how feature branches are developed, validated, documented, and merged into the main project.
 
-The objective is to keep CyberAtlas clean, modular, stable, and production-ready while allowing rapid experimentation during CTFs.
-
----
-
-# Philosophy
-
-HTB-CTF-Assistant is the laboratory.
-
-CyberAtlas is the production platform.
-
-Never sacrifice CyberAtlas architecture for short-term CTF speed.
-
-Every feature must prove its value before becoming part of CyberAtlas.
+The goal is to maintain a stable, production-quality codebase while allowing rapid feature development.
 
 ---
 
-# Merge Workflow
+# Branch Strategy
 
 ```
-Idea
-    │
-    ▼
-Implement in HTB-CTF-Assistant
-    │
-    ▼
-Use During Real CTF
-    │
-    ▼
-Evaluate Performance
-    │
-    ▼
-Refactor
-    │
-    ▼
-Write Tests
-    │
-    ▼
-Write Documentation
-    │
-    ▼
-Review Architecture
-    │
-    ▼
-Merge into CyberAtlas
+main
+```
+
+Production-ready code only.
+
+```
+develop
+```
+
+Integration branch.
+
+```
+feature/<name>
+```
+
+Individual feature development.
+
+Examples
+
+```
+feature/htb-web
+feature/crypto
+feature/networking
+feature/linux
+feature/forensics
+feature/reversing
 ```
 
 ---
 
-# Merge Criteria
+# Development Workflow
 
-A feature may only be merged if it satisfies all of the following.
+Every feature follows the same lifecycle.
 
-## Functional
+```
+Create Feature Branch
 
-- Works reliably
-- Solves a real problem
-- Has been used successfully during CTF
-- Produces consistent results
+↓
+
+Implement Service
+
+↓
+
+Implement CLI
+
+↓
+
+Register Command
+
+↓
+
+Manual Testing
+
+↓
+
+Unit Tests
+
+↓
+
+python -m compileall assistant
+
+↓
+
+pytest
+
+↓
+
+Update Documentation
+
+↓
+
+Commit Changes
+
+↓
+
+Merge into develop
+
+↓
+
+Regression Testing
+
+↓
+
+Merge into main
+```
 
 ---
 
-## Code Quality
+# Merge Requirements
 
-- Follows project coding standards
-- Fully type hinted
-- Documented
-- Readable
-- No duplicated logic
+A feature may only be merged if all requirements are satisfied.
+
+## Code
+
+- Clean implementation
+- PEP 8 compliant
+- Type hints where applicable
+- No unused imports
+- No debug code
 
 ---
 
 ## Testing
 
-Must include
+Must pass
 
-- Unit tests
-- Edge cases
-- Error handling
-- Regression tests
+```
+python -m compileall assistant
+```
 
-Minimum requirement:
+and
 
 ```
 pytest
-All tests passing
 ```
+
+No failing tests are permitted.
 
 ---
 
 ## Documentation
 
-Before merging, update
+The following files must be updated before merging.
 
 - README.md
-- FEATURES.md
-- MODULES.md
 - CHANGELOG.md
 - PROJECT_STATE.md
+- TASKS.md
+- ROADMAP.md
+- NEXT_SESSION.md
+- SESSION_CONTEXT.md
+- TESTING_PLAN.md
+- COMMAND_REFERENCE.md
+- LESSONS_LEARNED.md
+- ARCHITECTURE.md
+- DEVELOPMENT_RULES.md
+- MASTER_PROMPT.md
 
 ---
 
-## Architecture
+## Manual Verification
 
-The feature must
+Each command must be executed manually.
 
-- Fit existing architecture
-- Respect module boundaries
-- Avoid tight coupling
-- Remain CPU friendly
-- Work offline where possible
+Verify
 
----
-
-# Merge Checklist
-
-Before merging verify
-
-- [ ] Feature completed
-- [ ] Used in real HTB challenge
-- [ ] Stable
-- [ ] Code reviewed
-- [ ] Unit tests added
-- [ ] Documentation updated
-- [ ] No duplicated code
-- [ ] Follows coding guidelines
-- [ ] No hardcoded paths
-- [ ] No hardcoded secrets
-- [ ] Logging implemented
-- [ ] Error handling implemented
+- Output formatting
+- Error handling
+- Expected behavior
+- Invalid inputs
 
 ---
 
-# Features Suitable for Merge
+# Commit Guidelines
 
-Examples include
+Use meaningful commit messages.
 
-- Enumeration automation
-- AI prompt generation
-- Report generation
-- Workspace management
-- Challenge templates
-- Payload generation
-- Notes management
-- Evidence management
-- File parsers
-- Hash identification
-- Encoding utilities
-- Networking helpers
-- Tool wrappers
-- CTF workflow automation
+Examples
+
+```
+Add HTB web analysis module
+```
+
+```
+Implement crypto hash analyzer
+```
+
+```
+Improve PE parser
+```
+
+```
+Add networking DNS lookup
+```
+
+Avoid
+
+```
+fix
+```
+
+```
+update
+```
+
+```
+changes
+```
 
 ---
 
-# Features NOT Ready for Merge
-
-Do NOT merge
-
-- Experimental code
-- Temporary scripts
-- One-off exploit code
-- Hardcoded payloads
-- Challenge-specific hacks
-- Dirty proof-of-concepts
-- Unused modules
-- Unmaintained dependencies
-
----
-
-# Refactoring Requirements
+# Pull Request Checklist
 
 Before merging
 
-Replace
-
-- duplicated code
-- magic values
-- large functions
-- global state
-
-With
-
-- reusable modules
-- configuration files
-- helper utilities
-- dependency injection where appropriate
+- Feature implemented
+- CLI registered
+- Manual testing completed
+- Unit tests added
+- Documentation updated
+- Compile successful
+- All tests passing
 
 ---
 
-# Documentation Requirements
+# Regression Testing
 
-Every merged feature must include
-
-Purpose
-
-How it works
-
-Dependencies
-
-Example usage
-
-Limitations
-
-Future improvements
-
----
-
-# Security Review
-
-Before merging verify
-
-- No credentials committed
-- No API keys
-- No tokens
-- No passwords
-- No challenge flags
-- No private HTB VPN information
-- No personal information
-
----
-
-# Performance Review
-
-Feature should
-
-- Minimize RAM usage
-- Minimize CPU usage
-- Avoid unnecessary subprocesses
-- Handle failures gracefully
-- Produce meaningful logs
-
----
-
-# Merge Procedure
-
-## Step 1
-
-Create feature branch
-
-```bash
-git checkout -b feature/<feature-name>
-```
-
----
-
-## Step 2
-
-Cherry-pick or copy the implementation from HTB-CTF-Assistant.
-
----
-
-## Step 3
-
-Refactor to CyberAtlas standards.
-
----
-
-## Step 4
-
-Add tests.
+Before merging into `main`
 
 Run
 
-```bash
+```
+python -m compileall assistant
+```
+
+```
 pytest
 ```
 
----
+Perform a quick smoke test of all implemented commands.
 
-## Step 5
+Current commands
 
-Run formatting
-
-```bash
-black .
-isort .
+```
+version
+doctor
+inspect
+workspace
+decode
+elf
+pe
+pcap
+web
 ```
 
 ---
 
-## Step 6
+# Release Process
 
-Run linting
+After a stable milestone
 
-```bash
-ruff check .
+1. Merge into `develop`
+2. Perform regression testing
+3. Merge into `main`
+4. Create Git tag
+5. Update CHANGELOG
+6. Publish GitHub release
+
+---
+
+# Versioning
+
+Current
+
+```
+v0.6.0-dev
+```
+
+Future milestones
+
+```
+v0.7.0
+Crypto Toolkit
+
+v0.8.0
+Networking Toolkit
+
+v0.9.0
+Linux Toolkit
+
+v1.0.0
+Production HTB Toolkit
 ```
 
 ---
 
-## Step 7
+# Current Merge Status
 
-Update documentation.
+Foundation
 
----
+✅ Complete
 
-## Step 8
+HTB Modules
 
-Commit
+- Doctor ✅
+- Inspect ✅
+- Workspace ✅
+- Decode ✅
+- ELF ✅
+- PE ✅
+- PCAP ✅
+- Web ✅
 
-```bash
-git add .
+Quality Gate
 
-git commit -m "feat(<module>): <description>"
+```
+python -m compileall assistant
+
+PASS
+```
+
+```
+pytest
+
+29 Passed
+
+0 Failed
+```
+
+Next Feature
+
+```
+Crypto Module
 ```
 
 ---
 
-## Step 9
+# Merge Philosophy
 
-Merge into main
+Merge only complete, tested, and documented features.
 
-```bash
-git checkout main
-
-git merge feature/<feature-name>
-```
-
----
-
-# Lessons Learned
-
-Every merged feature should answer
-
-What problem did it solve?
-
-What worked well?
-
-What failed?
-
-What should be improved?
-
-Can this help future CTFs?
-
-Can this help real penetration tests?
-
-Can this help SOC analysts?
-
----
-
-# Long-Term Vision
-
-The HTB-CTF-Assistant repository exists to rapidly prototype cybersecurity ideas.
-
-CyberAtlas exists to become a professional, modular, AI-assisted cybersecurity platform suitable for:
-
-- Learning
-- Hack The Box
-- Capture The Flag competitions
-- Bug Bounty
-- Penetration Testing
-- Red Teaming
-- Blue Teaming
-- SOC Operations
-- Detection Engineering
-- DFIR
-- Threat Hunting
-- Security Research
-
-Only mature, reusable, well-tested capabilities will be promoted from HTB-CTF-Assistant into CyberAtlas.
-
-This approach ensures CyberAtlas remains clean, maintainable, and production-ready while continuously benefiting from real-world offensive security experience.
+Every merge should leave the repository in a releasable state, ensuring future development always begins from a stable foundation.

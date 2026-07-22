@@ -1,42 +1,235 @@
 # Changelog
 
-## v0.1.0-dev
+All notable changes to the CyberAtlas HTB Toolkit are documented in this file.
 
-Initial HTB branch.
+The project follows an incremental implementation workflow where every module must successfully pass:
 
-Added
+- `python -m compileall assistant`
+- `pytest`
 
-- Documentation
-- Sprint Planning
+before proceeding to the next module.
 
 ---
 
-Future
+# v0.6.0-dev
 
-### Added
+## Added
 
-### Changed
+### Web Module
 
-### Fixed
+Implemented the Web analysis module.
 
-### Removed
+Features
 
+- HTTP/HTTPS URL support
+- Automatic URL normalization
+- HTTP header collection
+- HTTP status code detection
+- Content-Type detection
+- Cookie collection
+- Cookie attribute parsing
+  - Name
+  - Domain
+  - Path
+  - Secure
+  - HttpOnly
+  - Expires
+- robots.txt retrieval
+- Graceful timeout handling
+- Graceful connection error handling
+- Rich CLI output
 
+### Web CLI
 
-# Changelog
+Added
 
-## v0.2.0-dev
+```text
+cyberatlas web <url>
+```
 
-### Added
+Displays
 
-Doctor Command
+- Summary
+- Status Code
+- Content Type
+- Cookie Count
+- HTTP Headers
+- Cookies
+- robots.txt
 
-- Python Version Check
-- Operating System Check
-- Workspace Validation
-- Tool Detection
+### Testing
+
+Implemented
+
+- Local HTTP server testing
+- robots.txt validation
+- Cookie validation
+- Header validation
+- Offline deterministic testing
+
+Result
+
+```
+29 / 29 tests passing
+```
+
+### Manual Validation
+
+Successfully tested against
+
+- example.com
+- httpbin.org
+- google.com
+- hackthebox.com
 
 Verified
+
+- HTTP Headers
+- Cookies
+- robots.txt
+- HTTPS support
+- Cloudflare sites
+- Redirect handling
+
+---
+
+# v0.5.0-dev
+
+## Added
+
+### PE Module
+
+Implemented
+
+- PE Analyzer
+- PE CLI
+- DOS Header parsing
+- Machine detection
+- Import Table parsing
+- Section parsing
+- ASLR detection
+- DEP detection
+
+Testing
+
+- PE unit tests
+
+### PCAP Module
+
+Implemented
+
+- PCAP Analyzer
+- PCAP CLI
+- Packet counting
+- Protocol detection
+- IPv4 extraction
+- DNS extraction
+- HTTP Host extraction
+- HTTP URI extraction
+
+Testing
+
+- PCAP unit tests
+
+---
+
+# v0.4.0-dev
+
+## Added
+
+### Decode Module
+
+Implemented
+
+- Decode Service
+- Decode CLI
+
+Supported
+
+- Base64
+- Base32
+- Base85
+- Binary
+- Hex
+- URL Encoding
+- ROT13
+
+### ELF Module
+
+Implemented
+
+- ELF Analyzer
+- ELF CLI
+
+Features
+
+- ELF Class
+- Architecture
+- Entry Point
+- Endianness
+- PIE
+- NX
+- RELRO
+- Stack Canary
+- Interpreter
+- Stripped Detection
+
+Testing
+
+- Decode tests
+- ELF tests
+
+---
+
+# v0.3.0-dev
+
+## Added
+
+### Workspace Module
+
+Implemented
+
+- Workspace creation
+- HTB directory structure
+- README generation
+- writeup.md generation
+- Idempotent workspace creation
+
+### Inspect Module
+
+Implemented
+
+- File identification
+- SHA256
+- MD5
+- SHA1
+- Entropy calculation
+- URL extraction
+- Email extraction
+- IPv4 extraction
+- Flag detection
+- Investigation recommendations
+
+---
+
+# v0.2.0-dev
+
+## Added
+
+### Doctor Module
+
+Implemented
+
+System diagnostics
+
+Checks
+
+- Python version
+- Operating System
+- Workspace
+- Tool availability
+
+Verified tools
 
 - file
 - strings
@@ -59,182 +252,76 @@ Verified
 - radare2
 - gdb
 
-Result
+Verification Result
 
-20/20 tools detected successfully.
+```
+20 / 20 tools detected
+```
 
 ---
 
-### In Progress
+# v0.1.0-dev
 
-Inspect Module
+## Initial Project
+
+Created
+
+- HTB branch
+- Documentation
+- Project structure
+- Configuration system
+- Config Manager
+- Config Validator
+- Logging framework
+- CLI framework
+- Testing framework
+
+Implemented
+
+- Doctor
+- Inspect
+- Workspace
+- Decode
+- ELF
+- PE
+- PCAP
+- Web
+
+---
+
+# Current Project Status
+
+## Modules
 
 Completed
 
-- Service Layer
-- File Type Detection
-- Hashes
-- Entropy
-- URL Detection
-- Email Detection
-- IP Detection
-- Flag Detection
-- Recommendation Engine
-
-Remaining
-
-- CLI
-- Tests
-
-
-
-
-
-## v0.1.0-dev
-
-### Added
-
-- Implemented Inspect service.
-- Implemented Inspect CLI.
-- Added file triage:
-  - hashes
-  - entropy
-  - URLs
-  - emails
-  - IPv4
-  - flag extraction
-  - recommendations
-
-- Implemented Workspace service.
-- Implemented Workspace CLI.
-- Automatic HTB workspace creation.
-- README.md generation.
-- writeup.md generation.
-- Improved idempotent workspace handling.
-
-- Started Decode module.
-- Implemented Decoder service.
-- Added support for:
-  - Base64
-  - Hex
-  - URL
-  - Binary
-  - Base32
-  - Base85
-  - ROT13
-
-
-
-
-
-# Changelog
-
-## v0.3.0-dev
-
-### Added
-
-#### Decode Module
-
-- Implemented Decode CLI.
-- Added automatic detection for:
-  - Base64
-  - Binary
-  - Hex
-  - URL Encoding
-  - Base32
-  - Base85
-- Improved decode error handling using Rich panels.
-- Added Decode unit tests.
-- 7/7 Decode tests passing.
-
-#### ELF Module
-
-- Implemented ELF analysis service.
-- Implemented ELF CLI.
-- Added support for:
-  - ELF Class
-  - Architecture
-  - Endianness
-  - Entry Point
-  - Interpreter
-  - PIE Detection
-  - NX Detection
-  - RELRO Detection
-  - Stack Canary Detection
-  - Stripped Detection
-- Added ELF unit tests.
-- ELF analysis verified against system binaries.
-- 1/1 ELF tests passing.
-
-### Fixed
-
-- Binary decoding incorrectly detected as Hex.
-- Base85 shell quoting documentation.
-- Removed automatic ROT13 detection to prevent false positives.
-- Improved Decode CLI error presentation.
-
----
-
-## Current Test Status
-
-Passing
-
-- Decode: 7
-- ELF: 1
-
-Total
-
-8 Passing Tests
-
----
+- Doctor
+- Inspect
+- Workspace
+- Decode
+- ELF
+- PE
+- PCAP
+- Web
 
 Next
 
-- PE Module
-- PCAP Module
-- Web Module
-- Rules Module
+- Crypto
+- Networking
+- Linux
+- Forensics
+- Reverse Engineering Enhancements
 
+---
 
+# Quality Gate
 
+Current Status
 
-## v0.5.0-dev
+```
+python -m compileall assistant
+PASS
 
-### Added
-
-PE Module
-
-- PE Analyzer
-- PE CLI
-- ASLR detection
-- DEP detection
-- Section parsing
-- Import parsing
-- PE unit tests
-
-PCAP Module
-
-- PCAP Analyzer
-- PCAP CLI
-- Packet counting
-- Protocol detection
-- DNS extraction
-- HTTP host extraction
-- HTTP URI extraction
-- IPv4 extraction
-- PCAP unit tests
-
-### Testing
-
-28 tests passing
-
-
-
-
-Add the Web module implementation.
-Record manual validation.
-Record 29/29 passing tests.
-
-
-
-
+pytest
+29 / 29 PASSING
+```
