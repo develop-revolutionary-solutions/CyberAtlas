@@ -107,3 +107,51 @@
 
 
 
+# HTB Sprint Tasks
+
+## Completed
+
+- [x] CLI Framework
+- [x] Logging
+- [x] Config
+- [x] Testing Framework
+- [x] Doctor
+- [x] Inspect
+- [x] Workspace
+- [x] Decode
+- [x] Decode Tests
+- [x] ELF
+- [x] ELF Tests
+
+---
+
+## Current Sprint
+
+- [ ] PE
+- [ ] PE Tests
+- [ ] PCAP
+- [ ] PCAP Tests
+- [ ] Web
+- [ ] Web Tests
+- [ ] Rules
+- [ ] Rules Tests
+
+---
+
+## Before HTB
+
+Goal
+
+Working HTB toolkit capable of rapidly analyzing:
+
+- Encodings
+- ELF binaries
+- PE binaries
+- PCAP files
+- Web challenges
+
+with automated recommendations and clean CLI output.
+
+
+
+

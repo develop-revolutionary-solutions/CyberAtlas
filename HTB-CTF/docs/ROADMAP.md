@@ -177,3 +177,103 @@ Rules
 
 
 
+
+# CyberAtlas HTB Roadmap
+
+## Phase 1 (Before HTB)
+
+Highest Priority
+
+✅ Doctor
+✅ Inspect
+✅ Workspace
+✅ Decode
+✅ ELF
+
+Remaining
+
+- PE
+- PCAP
+- Web
+- Rules
+
+---
+
+## Phase 2
+
+Wrapper Commands
+
+- nmap
+- ffuf
+- gobuster
+- binwalk
+- exiftool
+- tshark
+- readelf
+- checksec
+
+---
+
+## Phase 3
+
+Automation
+
+- Automatic Notes
+- Evidence Collection
+- Report Generation
+
+---
+
+## Phase 4
+
+AI
+
+- Explain
+- Recommendations
+- Workflow Suggestions
+
+---
+
+## Phase 5
+
+Post Competition
+
+- Refactor
+- Improve Tests
+- Documentation
+- Merge into CyberAtlas Main
+
+---
+
+Progress
+
+Foundation
+████████████████████ 100%
+
+Inspect
+████████████████████ 100%
+
+Workspace
+████████████████████ 100%
+
+Decode
+████████████████████ 100%
+
+ELF
+████████████████████ 100%
+
+PE
+-------------------- 0%
+
+PCAP
+-------------------- 0%
+
+Web
+-------------------- 0%
+
+Rules
+-------------------- 0%
+
+
+
+

@@ -4,6 +4,8 @@ from assistant.cli.doctor import app as doctor_app
 from assistant.cli.version import app as version_app
 from assistant.cli.inspect import inspect
 from assistant.cli.workspace import workspace
+from assistant.cli.decode import decode
+from assistant.cli.elf import elf
 
 
 app = typer.Typer(
@@ -21,13 +23,14 @@ def main() -> None:
 
 app.command()(inspect)
 app.command()(workspace)
+app.command()(decode)
+app.command()(elf)
 
 
 app.add_typer(
     version_app,
     name="version",
 )
-
 
 app.add_typer(
     doctor_app,

@@ -35,13 +35,6 @@ class Decoder:
         except Exception:
             pass
 
-        # Hex
-        try:
-            decoded = bytes.fromhex(text).decode("utf-8")
-            return DecodeResult("Hex", decoded)
-        except Exception:
-            pass
-
         # URL Encoding
         url_decoded = unquote(text)
         if url_decoded != text:
@@ -62,6 +55,13 @@ class Decoder:
         except Exception:
             pass
 
+        # Hex
+        try:
+            decoded = bytes.fromhex(text).decode("utf-8")
+            return DecodeResult("Hex", decoded)
+        except Exception:
+            pass
+
         # Base32
         try:
             decoded = base64.b32decode(text).decode("utf-8")
@@ -77,8 +77,4 @@ class Decoder:
             pass
 
         # ROT13
-        rot13 = codecs.decode(text, "rot_13")
-        if rot13 != text:
-            return DecodeResult("ROT13", rot13)
-
         raise ValueError("Unable to detect supported encoding.")

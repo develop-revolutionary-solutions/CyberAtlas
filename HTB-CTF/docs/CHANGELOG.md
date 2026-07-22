@@ -127,3 +127,74 @@ Remaining
 
 
 
+# Changelog
+
+## v0.3.0-dev
+
+### Added
+
+#### Decode Module
+
+- Implemented Decode CLI.
+- Added automatic detection for:
+  - Base64
+  - Binary
+  - Hex
+  - URL Encoding
+  - Base32
+  - Base85
+- Improved decode error handling using Rich panels.
+- Added Decode unit tests.
+- 7/7 Decode tests passing.
+
+#### ELF Module
+
+- Implemented ELF analysis service.
+- Implemented ELF CLI.
+- Added support for:
+  - ELF Class
+  - Architecture
+  - Endianness
+  - Entry Point
+  - Interpreter
+  - PIE Detection
+  - NX Detection
+  - RELRO Detection
+  - Stack Canary Detection
+  - Stripped Detection
+- Added ELF unit tests.
+- ELF analysis verified against system binaries.
+- 1/1 ELF tests passing.
+
+### Fixed
+
+- Binary decoding incorrectly detected as Hex.
+- Base85 shell quoting documentation.
+- Removed automatic ROT13 detection to prevent false positives.
+- Improved Decode CLI error presentation.
+
+---
+
+## Current Test Status
+
+Passing
+
+- Decode: 7
+- ELF: 1
+
+Total
+
+8 Passing Tests
+
+---
+
+Next
+
+- PE Module
+- PCAP Module
+- Web Module
+- Rules Module
+
+
+
+
