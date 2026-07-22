@@ -88,3 +88,42 @@ Remaining
 
 
 
+
+
+## v0.1.0-dev
+
+### Added
+
+- Implemented Inspect service.
+- Implemented Inspect CLI.
+- Added file triage:
+  - hashes
+  - entropy
+  - URLs
+  - emails
+  - IPv4
+  - flag extraction
+  - recommendations
+
+- Implemented Workspace service.
+- Implemented Workspace CLI.
+- Automatic HTB workspace creation.
+- README.md generation.
+- writeup.md generation.
+- Improved idempotent workspace handling.
+
+- Started Decode module.
+- Implemented Decoder service.
+- Added support for:
+  - Base64
+  - Hex
+  - URL
+  - Binary
+  - Base32
+  - Base85
+  - ROT13
+
+
+
+
+

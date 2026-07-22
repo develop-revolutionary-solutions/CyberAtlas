@@ -239,3 +239,28 @@ After HTB
 
 
 
+Update:
+
+Current branch: htb
+Status: Implementation Phase
+Completed modules:
+CLI
+Config
+Logging
+Doctor
+Inspect
+Workspace
+Decode:
+Service completed
+CLI pending
+Next milestone:
+Decode CLI
+ELF
+PE
+PCAP
+Web
+Rules
+
+
+
+

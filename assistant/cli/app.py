@@ -1,13 +1,10 @@
-"""
-CyberAtlas CLI.
-
-Main application entry point.
-"""
-
 import typer
 
 from assistant.cli.doctor import app as doctor_app
 from assistant.cli.version import app as version_app
+from assistant.cli.inspect import inspect
+from assistant.cli.workspace import workspace
+
 
 app = typer.Typer(
     name="CyberAtlas",
@@ -18,16 +15,19 @@ app = typer.Typer(
 
 @app.callback()
 def main() -> None:
-    """
-    CyberAtlas CLI.
-    """
+    """CyberAtlas CLI."""
     pass
+
+
+app.command()(inspect)
+app.command()(workspace)
 
 
 app.add_typer(
     version_app,
     name="version",
 )
+
 
 app.add_typer(
     doctor_app,

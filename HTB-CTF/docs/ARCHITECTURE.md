@@ -45,3 +45,21 @@ Design Goals
 - CPU Friendly
 - Modular
 - Testable
+
+
+
+assistant/
+├── cli/
+│   ├── doctor.py
+│   ├── inspect.py
+│   ├── workspace.py
+│   └── decode.py
+│
+└── modules/
+    ├── doctor/
+    ├── inspect/
+    ├── workspace/
+    └── decode/
+
+
+
