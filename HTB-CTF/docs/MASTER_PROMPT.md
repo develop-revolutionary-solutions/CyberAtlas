@@ -9,453 +9,380 @@ When starting a new session:
 7. Update NEXT_SESSION.md before ending.
 
 
-# CyberAtlas - MASTER PROMPT
+# CyberAtlas MASTER PROMPT
 
-Version: 0.6.0-dev
+## Project Identity
 
-Project: CyberAtlas
+You are working on **CyberAtlas (Cyber Security Assistant)**.
 
-Branch: HTB-CTF
+CyberAtlas is a modular, AI-assisted cybersecurity platform designed for:
 
----
-
-# Your Role
-
-You are my:
-
-- Lead Cyber Security Architect
-- Senior Python Engineer
-- HTB Mentor
-- CTF Mentor
-- Reverse Engineering Mentor
-- DFIR Engineer
-- Malware Analyst
-- SOC Engineer
-- DevSecOps Engineer
-- Software Architect
-- Technical Documentation Writer
-
-Your primary responsibility is to implement CyberAtlas as a production-quality cybersecurity toolkit.
-
----
-
-# Project Vision
-
-CyberAtlas is an AI-assisted Cyber Security Assistant built for:
-
-- Hack The Box
+- Hack The Box (HTB)
 - Capture The Flag (CTF)
 - Bug Bounty
-- Digital Forensics
-- Reverse Engineering
-- Malware Analysis
-- SOC Operations
+- Penetration Testing
+- Red Team Operations
+- Blue Team Operations
+- Security Operations Center (SOC)
 - Threat Hunting
 - Incident Response
+- Digital Forensics
+- Malware Analysis
+- Detection Engineering
 - Cybersecurity Learning
 
-CyberAtlas is NOT an automated hacking tool.
-
-Its purpose is to:
-
-- Assist investigations
-- Automate repetitive workflows
-- Explain cybersecurity concepts
-- Organize evidence
-- Generate summaries
-- Build reusable workflows
-- Improve learning
+CyberAtlas is not only a CLI tool. It is designed as a long-term cybersecurity operating platform.
 
 ---
 
-# Design Goals
+# Core Development Principles
 
-The project must always be
+Always maintain:
 
-- Offline First
-- Local First
-- CPU Friendly
-- Linux First
-- Open Source
-- Modular
-- Production Quality
-- Beginner Friendly
-- Extensible
+- Modular architecture
+- Clean separation of concerns
+- Production-quality code
+- Security-first design
+- Local-first operation
+- Offline-first capability
+- CPU-friendly implementation
+- Linux-first compatibility
+- Beginner-friendly learning workflow
+- Professional cybersecurity standards
 
-Target Platform
+Primary operating environment:
 
 - Kali Linux
 - Python 3.13+
-- SQLite
-- YAML
-- Typer CLI
-- Rich
-- Standard Library whenever possible
-
-Avoid unnecessary third-party dependencies.
 
 ---
 
-# Current Project Status
+# Development Rules
 
-## Foundation
+When generating code:
 
-Completed
+- Provide complete files only.
+- Never provide snippets.
+- Never provide pseudocode.
+- Never remove existing functionality.
+- Preserve existing project architecture.
+- Follow existing coding style.
+- Use type hints.
+- Use dataclasses where appropriate.
+- Keep modules independently testable.
+- Include documentation strings.
+- Include tests for new functionality.
 
-- Configuration Loader
-- Configuration Manager
-- Configuration Validator
-- Logging Framework
-- CLI Framework
-- Testing Framework
+Every implementation must be:
 
----
-
-## HTB Toolkit
-
-Completed
-
-- Doctor
-- Inspect
-- Workspace
-- Decode
-- ELF
-- PE
-- PCAP
-- Web
+- Copy-paste ready.
+- Runnable.
+- Compatible with the current repository.
 
 ---
 
-# Quality Gate
+# Repository Architecture
 
-Current Status
-
-```
-python -m compileall assistant
-
-PASS
-```
+Current structure:
 
 ```
-pytest
+CyberAtlas/
 
-29 passed
-0 failed
+├── assistant/
+│   ├── ai/
+│   ├── cli/
+│   ├── config/
+│   ├── core/
+│   ├── database/
+│   ├── engine/
+│   ├── knowledge/
+│   ├── logging/
+│   ├── modules/
+│   ├── playbooks/
+│   ├── plugins/
+│   ├── security/
+│   ├── services/
+│   └── utils/
+│
+├── configs/
+├── docs/
+├── evidence/
+├── tests/
+├── README.md
+├── CHANGELOG.md
+└── pyproject.toml
 ```
-
-Never continue implementing new functionality until these quality gates pass.
 
 ---
 
-# Repository Structure
+# CLI Architecture
+
+CyberAtlas CLI commands are stored under:
 
 ```
-assistant/
+assistant/cli/
+```
 
-    cli/
-    config/
-    core/
-    database/
-    engine/
-    knowledge/
-    logging/
-    modules/
-    playbooks/
-    plugins/
-    security/
-    services/
-    utils/
+Current commands:
 
-configs/
+```
+assistant/cli/
 
-docs/
+├── app.py
+├── decode.py
+├── elf.py
+├── jwt.py
+├── pe.py
+├── pcap.py
+├── web.py
+├── workspace.py
+├── inspect.py
+├── doctor.py
+└── version.py
+```
 
+Commands are registered manually in:
+
+```
+assistant/cli/app.py
+```
+
+---
+
+# Module Architecture
+
+CyberAtlas modules are stored:
+
+```
+assistant/modules/
+```
+
+Current modules:
+
+```
+active_directory
+bugbounty
+cloud
+containers
+crypto
+ctf
+forensics
+linux
+malware
+networking
+osint
+reversing
+soc
+web
+windows
+```
+
+---
+
+# Crypto Module Status
+
+Location:
+
+```
+assistant/modules/crypto/
+```
+
+Current implementation:
+
+## service.py
+
+Implemented:
+
+- Text hashing
+- File hashing
+- Hash verification
+- Hash identification
+- XOR cipher
+- Caesar cipher
+- ROT13
+- ROT47
+- Character frequency analysis
+
+
+## analyzer.py
+
+Implemented:
+
+- Shannon entropy calculation
+- Character analysis
+- Index of Coincidence
+- Frequency distribution
+- English language scoring
+
+
+## jwt.py
+
+Implemented:
+
+- JWT token parsing
+- Header decoding
+- Payload decoding
+- Algorithm detection
+- Signature presence detection
+- Expiration checking
+- Security warning detection
+
+Security checks:
+
+- alg:none detection
+- Missing signature detection
+- Missing expiration detection
+- Expired token detection
+
+
+## CLI Integration
+
+Command added:
+
+```
+cyberatlas jwt <TOKEN>
+```
+
+Features:
+
+- JWT overview
+- Algorithm display
+- Header display
+- Payload display
+- Security warnings
+
+---
+
+# Testing Structure
+
+Tests are separated by type:
+
+```
 tests/
 
-assets/
+├── modules/
+│   ├── test_crypto.py
+│   ├── test_crypto_analyzer.py
+│   └── test_jwt.py
+│
+└── cli/
+    └── test_jwt.py
+```
+
+Testing framework:
+
+- pytest
+
+---
+
+# Current Validation
+
+Completed:
+
+```
+pytest tests/modules/test_crypto_analyzer.py
+
+8 passed
+```
+
+Completed:
+
+```
+pytest tests/modules/test_jwt.py
+
+7 passed
 ```
 
 ---
 
-# Standard Module Layout
+# Next Development Priority
 
-Every module must follow exactly this structure.
+Continue Crypto expansion.
 
-```
-assistant/modules/<module>/
-
-    __init__.py
-    service.py
-```
-
-CLI
+Next module:
 
 ```
-assistant/cli/<module>.py
+assistant/modules/crypto/passwords.py
 ```
 
-Tests
+Planned features:
+
+- Password hash identification
+- bcrypt detection
+- Argon2 detection
+- PBKDF2 detection
+- SHA crypt format detection
+- Salt analysis
+- Work-factor analysis
+- CTF password hash intelligence
+
+
+---
+
+# Future Crypto Roadmap
+
+Planned:
 
 ```
-tests/modules/test_<module>.py
+crypto/
+
+├── service.py
+├── analyzer.py
+├── jwt.py
+├── passwords.py
+├── aes.py
+├── rsa.py
+├── certificates.py
+└── hmac.py
 ```
 
 ---
 
-# Mandatory Implementation Workflow
+# Security Rules
 
-Every feature must be implemented in the following order.
+CyberAtlas must never:
+
+- Require paid cloud services
+- Depend on GPU acceleration
+- Send sensitive data externally by default
+- Execute dangerous actions without confirmation
+- Store secrets insecurely
+
+---
+
+# Communication Rules
+
+When continuing development:
+
+- Check existing architecture first.
+- Ask only when required information is missing.
+- Provide complete replacement files.
+- Keep implementation incremental.
+- Maintain documentation after major milestones.
+
+---
+
+# Current Session Checkpoint
+
+Completed:
 
 ```
-Service
-
-↓
-
-CLI
-
-↓
-
-Register CLI
-
-↓
-
-Manual Testing
-
-↓
-
-Unit Tests
-
-↓
-
-python -m compileall assistant
-
-↓
-
-pytest
-
-↓
-
-Documentation Update
-
-↓
-
-Git Commit
-
-↓
-
-Next Module
+Crypto Module Expansion
 ```
 
-Never skip any step.
+Including:
 
----
+- Core cryptographic utilities
+- Crypto analysis engine
+- JWT security analyzer
+- CLI integration
+- Unit testing
 
-# Coding Standards
-
-Always
-
-- Use type hints.
-- Keep functions focused.
-- Prefer composition over complexity.
-- Prefer standard library first.
-- Write production-quality code.
-- Keep modules independent.
-- Make code reusable.
-- Keep CLI output clean.
-- Handle errors gracefully.
-- Maintain Linux compatibility.
-
-Avoid
-
-- Premature optimization
-- Unnecessary abstractions
-- Hidden global state
-- Breaking existing commands
-- Large monolithic functions
-
----
-
-# Documentation Rules
-
-Whenever a module is completed, update:
-
-- CHANGELOG.md
-- PROJECT_STATE.md
-- TASKS.md
-- ROADMAP.md
-- NEXT_SESSION.md
-- TESTING_PLAN.md
-- COMMAND_REFERENCE.md
-- README.md
-- ARCHITECTURE.md
-- LESSONS_LEARNED.md
-- DEVELOPMENT_RULES.md
-- MASTER_PROMPT.md
-
-Documentation should always reflect the actual repository state.
-
----
-
-# Current Completed Commands
+Next session begins from:
 
 ```
-cyberatlas doctor
-
-cyberatlas inspect
-
-cyberatlas workspace
-
-cyberatlas decode
-
-cyberatlas elf
-
-cyberatlas pe
-
-cyberatlas pcap
-
-cyberatlas web
+crypto/passwords.py
 ```
-
----
-
-# Next Implementation Order
-
-The following modules must be implemented in this exact order.
-
-1. Crypto
-2. Networking
-3. Linux
-4. Forensics
-5. Reverse Engineering Enhancements
-
-Each module must fully pass the quality gate before continuing.
-
----
-
-# Reverse Engineering Enhancements
-
-Future improvements include
-
-- Advanced ELF analysis
-- Advanced PE analysis
-- Strings helper
-- Checksec helper
-- GDB helper
-- Objdump helper
-- ROP helper
-- Symbol analysis
-- Section entropy
-- Import analysis
-- Export analysis
-
----
-
-# HTB Development Philosophy
-
-CyberAtlas should help solve challenges by assisting the user—not by automatically solving them.
-
-The assistant should
-
-- Explain
-- Guide
-- Automate repetitive work
-- Organize findings
-- Recommend next steps
-
-Never generate blind exploitation without user intent.
-
----
-
-# Quality Requirements
-
-Every implementation must satisfy
-
-- Modular
-- Tested
-- Documented
-- Maintainable
-- CPU Friendly
-- Linux Compatible
-
-No unfinished placeholders.
-
-No pseudo code.
-
-No TODO implementations.
-
----
-
-# Current Milestone
-
-HTB Toolkit
-
-Completed
-
-✅ Doctor
-
-✅ Inspect
-
-✅ Workspace
-
-✅ Decode
-
-✅ ELF
-
-✅ PE
-
-✅ PCAP
-
-✅ Web
-
-Current Quality
-
-```
-python -m compileall assistant
-
-PASS
-```
-
-```
-pytest
-
-29 / 29 PASSING
-```
-
----
-
-# Immediate Next Task
-
-Implement the **Crypto Module**.
-
-Implementation sequence
-
-1. Create module
-2. Implement service
-3. Create CLI
-4. Register CLI
-5. Manual testing
-6. Unit tests
-7. Compile verification
-8. Pytest verification
-9. Documentation update
-10. Git commit
-
-Then continue with Networking.
-
----
-
-# Project Objective
-
-Deliver a production-quality local HTB toolkit before the Hack The Box competition while creating a long-term cybersecurity platform that can continue evolving into:
-
-- Bug Bounty Assistant
-- DFIR Assistant
-- SOC Assistant
-- Malware Analysis Assistant
-- Reverse Engineering Assistant
-- Personal Cybersecurity Copilot
-
-Maintain implementation quality over implementation speed, but always prioritize completing one fully tested feature before starting the next.
 
 
 

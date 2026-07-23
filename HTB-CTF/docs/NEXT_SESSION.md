@@ -1,181 +1,266 @@
-# CyberAtlas - Next Session
+# CyberAtlas Next Session
 
-Project
+## Current Project State
 
+Project:
 CyberAtlas
 
-Branch
 
-HTB-CTF
+Current milestone:
 
-Version
 
-v0.6.0-dev
+Crypto Intelligence Foundation Expansion Completed
 
-Last Updated
 
-2026-07-22
+Latest validation:
 
----
-
-# Current Status
-
-Foundation
-
-✅ Complete
-
-Implemented Modules
-
-- Doctor
-- Inspect
-- Workspace
-- Decode
-- ELF
-- PE
-- PCAP
-- Web
-
-Current Quality Gate
-
-```
-python -m compileall assistant
-
-PASS
-```
-
-```
 pytest
 
-29 passed
+Result:
 
-0 failed
-```
+105 passed
 
-Repository Status
 
-Stable
+# Completed In Previous Session
 
-No known failing tests.
+## HMAC Intelligence Module
 
-No compilation errors.
+Completed:
 
----
+assistant/modules/crypto/hmac.py
 
-# Next Module
+Implemented:
 
-Crypto
+HMAC generation
+HMAC verification
+Secure key generation
+Digest identification
+HMAC key analysis
 
-Implementation Order
+Supported:
 
-1. Create
+MD5
+SHA1
+SHA224
+SHA256
+SHA384
+SHA512
 
-```
-assistant/modules/crypto/
-```
 
-with
+## HMAC CLI Integration
 
-```
-__init__.py
-service.py
-```
+Completed:
 
-2. Create
+assistant/cli/hmac.py
 
-```
-assistant/cli/crypto.py
-```
+Architecture:
 
-3. Register CLI
+Typer grouped command namespace.
 
-```
+Available commands:
+
+cyberatlas hmac generate
+
+cyberatlas hmac verify
+
+cyberatlas hmac keygen
+
+cyberatlas hmac identify
+
+cyberatlas hmac analyze-key
+
+Registered through:
+
 assistant/cli/app.py
-```
 
-4. Manual Testing
+Implementation:
 
-5. Unit Tests
+app.add_typer(
+    hmac_app,
+    name="hmac",
+)
 
-```
-tests/modules/test_crypto.py
-```
 
-6.
+# Current CLI Architecture
 
-```
-python -m compileall assistant
-```
+Current:
 
-7.
+cyberatlas
 
-```
+├── inspect
+├── workspace
+├── decode
+├── elf
+├── pe
+├── pcap
+├── web
+├── jwt
+├── password
+├── wordlist
+├── hmac
+│   ├── generate
+│   ├── verify
+│   ├── keygen
+│   ├── identify
+│   └── analyze-key
+├── version
+└── doctor
+
+# Immediate Next Task
+
+## Create Crypto Parent Namespace
+
+Goal:
+
+Improve scalability before adding more cryptographic modules.
+
+Target command:
+
+cyberatlas crypto
+
+Future structure:
+
+cyberatlas crypto
+
+├── hash
+├── cipher
+├── hmac
+├── encoding
+├── certificate
+├── aes
+├── rsa
+└── tls
+
+Reason:
+
+The crypto subsystem will continue expanding. A parent namespace avoids dozens of top-level commands.
+
+
+## Planned Refactor
+
+Move:
+
+Current:
+
+cyberatlas hmac
+
+Target:
+
+cyberatlas crypto hmac
+
+Future examples:
+
+cyberatlas crypto hash
+
+cyberatlas crypto cipher
+
+cyberatlas crypto aes
+
+cyberatlas crypto rsa
+
+cyberatlas crypto certificate
+
+
+
+# Next Implementation Steps
+
+## Step 1
+
+Create:
+
+assistant/cli/crypto.py
+
+Purpose:
+
+Crypto command namespace.
+
+
+## Step 2
+
+Move HMAC registration:
+
+Before:
+
+app.add_typer(
+    hmac_app,
+    name="hmac",
+)
+
+After:
+
+crypto
+ |
+ └── hmac
+
+
+## Step 3
+
+Update CLI tests:
+
+Create:
+
+tests/modules/test_crypto_cli.py
+
+Validate:
+
+crypto namespace exists
+hmac is available under crypto
+existing HMAC commands work
+
+
+## Step 4
+
+Run:
+
 pytest
-```
 
-8.
+Expected:
 
-Update documentation
+105+ passed
 
-9.
 
-Git Commit
+# After CLI Refactor
 
----
+Continue Crypto Expansion:
 
-# Development Rules
+Priority:
 
-Never redesign architecture unless implementation requires it.
+AES module
+RSA module
+Certificate analysis
+TLS inspection
+Encoding intelligence
 
-Always implement one working feature at a time.
 
-Workflow
+# Development Requirements
 
-Service
+Always maintain:
 
-↓
+Python 3.13+
+Typer CLI style
+Rich terminal output
+Local-first execution
+CPU-friendly implementation
+Modular architecture
+Complete unit tests
+Documentation updates after milestones
 
-CLI
 
-↓
+# Current Handoff Point
 
-Register CLI
+The next session should start with:
 
-↓
+Create assistant/cli/crypto.py
 
-Manual Testing
+Then migrate:
 
-↓
+cyberatlas hmac
 
-Unit Tests
+to:
 
-↓
+cyberatlas crypto hmac
 
-Compile
+without breaking existing functionality.
 
-↓
 
-Pytest
 
-↓
-
-Documentation
-
-↓
-
-Git Commit
-
-↓
-
-Next Module
-
----
-
-# Immediate Goal
-
-Complete the Crypto module and maintain
-
-```
-100% passing tests
-```
-
-before moving to Networking.

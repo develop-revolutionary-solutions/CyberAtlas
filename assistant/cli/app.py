@@ -9,6 +9,10 @@ from assistant.cli.elf import elf
 from assistant.cli.pe import pe
 from assistant.cli.pcap import pcap
 from assistant.cli.web import web
+from assistant.cli.jwt import jwt
+from assistant.cli.password import password
+from assistant.cli.wordlist import wordlist
+from assistant.cli.hmac import app as hmac_app
 
 
 app = typer.Typer(
@@ -31,7 +35,15 @@ app.command()(elf)
 app.command()(pe)
 app.command()(pcap)
 app.command()(web)
+app.command()(jwt)
+app.command()(password)
+app.command()(wordlist)
 
+
+app.add_typer(
+    hmac_app,
+    name="hmac",
+)
 
 app.add_typer(
     version_app,

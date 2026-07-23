@@ -1,327 +1,243 @@
-# Changelog
+# CyberAtlas Changelog
 
-All notable changes to the CyberAtlas HTB Toolkit are documented in this file.
+All notable changes to CyberAtlas are documented here.
 
-The project follows an incremental implementation workflow where every module must successfully pass:
+The project follows incremental development with focus on:
 
-- `python -m compileall assistant`
-- `pytest`
+- Cybersecurity learning
+- HTB / CTF workflows
+- Penetration testing support
+- SOC operations
+- Security automation
+- Local-first security tooling
 
-before proceeding to the next module.
-
----
-
-# v0.6.0-dev
-
-## Added
-
-### Web Module
-
-Implemented the Web analysis module.
-
-Features
-
-- HTTP/HTTPS URL support
-- Automatic URL normalization
-- HTTP header collection
-- HTTP status code detection
-- Content-Type detection
-- Cookie collection
-- Cookie attribute parsing
-  - Name
-  - Domain
-  - Path
-  - Secure
-  - HttpOnly
-  - Expires
-- robots.txt retrieval
-- Graceful timeout handling
-- Graceful connection error handling
-- Rich CLI output
-
-### Web CLI
-
-Added
-
-```text
-cyberatlas web <url>
-```
-
-Displays
-
-- Summary
-- Status Code
-- Content Type
-- Cookie Count
-- HTTP Headers
-- Cookies
-- robots.txt
-
-### Testing
-
-Implemented
-
-- Local HTTP server testing
-- robots.txt validation
-- Cookie validation
-- Header validation
-- Offline deterministic testing
-
-Result
-
-```
-29 / 29 tests passing
-```
-
-### Manual Validation
-
-Successfully tested against
-
-- example.com
-- httpbin.org
-- google.com
-- hackthebox.com
-
-Verified
-
-- HTTP Headers
-- Cookies
-- robots.txt
-- HTTPS support
-- Cloudflare sites
-- Redirect handling
 
 ---
 
-# v0.5.0-dev
+# Version 0.1.0 - Development Release
 
 ## Added
 
-### PE Module
 
-Implemented
+## Core Project Foundation
 
-- PE Analyzer
-- PE CLI
-- DOS Header parsing
-- Machine detection
-- Import Table parsing
-- Section parsing
-- ASLR detection
-- DEP detection
+Implemented initial CyberAtlas architecture:
 
-Testing
+- Modular Python package structure
+- CLI framework using Typer
+- Rich terminal interface
+- Configuration management system
+- Logging framework
+- Environment validation
+- Local-first architecture
 
-- PE unit tests
 
-### PCAP Module
+## Configuration System
 
-Implemented
+Implemented:
 
-- PCAP Analyzer
-- PCAP CLI
-- Packet counting
-- Protocol detection
-- IPv4 extraction
-- DNS extraction
-- HTTP Host extraction
-- HTTP URI extraction
+- Configuration loader
+- Configuration manager
+- Configuration validator
+- YAML-based configuration handling
+- Configuration tests
 
-Testing
 
-- PCAP unit tests
+## Crypto Intelligence Foundation
 
----
+Implemented initial cryptography intelligence capabilities.
 
-# v0.4.0-dev
 
-## Added
+### Hash Operations
 
-### Decode Module
+Added:
 
-Implemented
+- Hash generation
+- File hashing
+- Hash verification
+- Hash identification
 
-- Decode Service
-- Decode CLI
 
-Supported
+Supported algorithms:
 
-- Base64
-- Base32
-- Base85
-- Binary
-- Hex
-- URL Encoding
-- ROT13
-
-### ELF Module
-
-Implemented
-
-- ELF Analyzer
-- ELF CLI
-
-Features
-
-- ELF Class
-- Architecture
-- Entry Point
-- Endianness
-- PIE
-- NX
-- RELRO
-- Stack Canary
-- Interpreter
-- Stripped Detection
-
-Testing
-
-- Decode tests
-- ELF tests
-
----
-
-# v0.3.0-dev
-
-## Added
-
-### Workspace Module
-
-Implemented
-
-- Workspace creation
-- HTB directory structure
-- README generation
-- writeup.md generation
-- Idempotent workspace creation
-
-### Inspect Module
-
-Implemented
-
-- File identification
-- SHA256
 - MD5
 - SHA1
-- Entropy calculation
-- URL extraction
-- Email extraction
-- IPv4 extraction
-- Flag detection
-- Investigation recommendations
+- SHA224
+- SHA256
+- SHA384
+- SHA512
 
----
 
-# v0.2.0-dev
+### Cipher Operations
 
-## Added
+Added:
 
-### Doctor Module
+- XOR cipher
+- Caesar cipher
+- ROT13
+- ROT47
 
-Implemented
 
-System diagnostics
+### Cryptographic Analysis
 
-Checks
+Added:
 
-- Python version
-- Operating System
-- Workspace
-- Tool availability
+- Shannon entropy calculation
+- Character frequency analysis
+- Index of Coincidence
+- English language scoring
 
-Verified tools
 
-- file
-- strings
-- readelf
-- objdump
-- checksec
-- tshark
-- curl
-- wget
-- nmap
-- ffuf
-- gobuster
-- binwalk
-- exiftool
-- steghide
-- john
-- hashcat
-- sqlmap
-- yara
-- radare2
-- gdb
+### JWT Intelligence
 
-Verification Result
+Added:
 
-```
-20 / 20 tools detected
-```
+- JWT parsing
+- Header decoding
+- Payload decoding
+- Algorithm detection
+- Signature analysis
+- Expiration analysis
+- Security warnings
 
----
 
-# v0.1.0-dev
+CLI:
 
-## Initial Project
+cyberatlas jwt <TOKEN>
 
-Created
 
-- HTB branch
-- Documentation
-- Project structure
-- Configuration system
-- Config Manager
-- Config Validator
-- Logging framework
-- CLI framework
-- Testing framework
+# Password Intelligence
 
-Implemented
+Added:
 
-- Doctor
-- Inspect
-- Workspace
-- Decode
-- ELF
-- PE
-- PCAP
-- Web
+Password strength analysis
+Entropy calculation
+Character class detection
+Password scoring
+Pattern detection
+Mutation generation
+Password masking
 
----
+CLI:
+cyberatlas password <PASSWORD>
 
-# Current Project Status
 
-## Modules
+# Wordlist Intelligence
 
-Completed
+Added:
 
-- Doctor
-- Inspect
-- Workspace
-- Decode
-- ELF
-- PE
-- PCAP
-- Web
+Wordlist loading
+Cleaning
+Deduplication
+Statistics
+Length filtering
+Keyword searching
+Mutation generation
+Combination generation
 
-Next
+CLI:
+cyberatlas wordlist <FILE>
 
-- Crypto
-- Networking
-- Linux
-- Forensics
-- Reverse Engineering Enhancements
 
----
+# HMAC Intelligence
 
-# Quality Gate
+Added:
 
-Current Status
+HMAC generation
+HMAC verification
+Secure HMAC key generation
+Digest algorithm identification
+HMAC key analysis
 
-```
-python -m compileall assistant
-PASS
+Supported algorithms:
 
-pytest
-29 / 29 PASSING
-```
+MD5
+SHA1
+SHA224
+SHA256
+SHA384
+SHA512
+
+CLI namespace:
+cyberatlas hmac
+
+Commands:
+cyberatlas hmac generate
+
+cyberatlas hmac verify
+
+cyberatlas hmac keygen
+
+cyberatlas hmac identify
+
+cyberatlas hmac analyze-key
+
+
+
+# CLI Improvements
+
+Added grouped command architecture for advanced security modules.
+
+Current structure:
+
+cyberatlas
+
+├── jwt
+├── password
+├── wordlist
+├── hmac
+│   ├── generate
+│   ├── verify
+│   ├── keygen
+│   ├── identify
+│   └── analyze-key
+├── version
+└── doctor
+
+
+## Testing
+
+Expanded automated testing:
+
+Previous:
+97 tests
+
+Current:
+105 tests passed
+
+
+Test coverage includes:
+
+Configuration modules
+Crypto services
+Crypto analysis
+JWT intelligence
+Password intelligence
+Wordlist intelligence
+HMAC intelligence
+CLI commands
+
+
+
+# Development Notes
+
+CyberAtlas remains focused on:
+
+Python 3.13+
+CPU-friendly execution
+Offline-first workflows
+Local security tooling
+Modular architecture
+Open-source development
+
+Future planned modules:
+
+AES analysis
+RSA intelligence
+Certificate analysis
+TLS inspection
+CTF automation
+Threat hunting workflows
+SOC automation
+
+

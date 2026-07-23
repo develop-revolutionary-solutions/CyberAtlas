@@ -1,240 +1,353 @@
 # CyberAtlas Session Context
 
-This file provides a lightweight snapshot of the current development session.
-
-It should be updated after every completed implementation.
-
----
-
 ## Project
 
+**CyberAtlas**
+
+AI-assisted Cyber Security Assistant.
+
+Repository:
 CyberAtlas
 
-Branch
 
-HTB-CTF
+Purpose:
 
-Version
+A modular, local-first cybersecurity platform supporting:
 
-v0.6.0-dev
+- Cybersecurity learning
+- Hack The Box workflows
+- CTF solving
+- Penetration testing assistance
+- SOC operations
+- Threat hunting
+- Security automation
 
----
-
-## Current Milestone
-
-HTB Toolkit
-
-Completed
-
-✅ Doctor
-
-✅ Inspect
-
-✅ Workspace
-
-✅ Decode
-
-✅ ELF
-
-✅ PE
-
-✅ PCAP
-
-✅ Web
 
 ---
 
-## Current Quality
+# Current Development Status
 
-Compile
+## Version
 
-```
-python -m compileall assistant
+0.1.0 Development Release
 
-PASS
-```
 
-Testing
 
-```
+
+## Environment
+
+Operating System:
+Kali Linux
+
+
+Python:
+3.13+
+
+
+Execution model:
+
+- Local-first
+- CPU-friendly
+- No cloud dependency
+- No GPU requirement
+
+
+---
+
+# Completed Components
+
+
+## Core Framework
+
+Completed:
+
+- Project structure
+- CLI framework
+- Configuration system
+- Logging system
+- Environment validation
+
+
+Location:
+assistant/
+
+
+
+
+---
+
+# Crypto Intelligence Foundation
+
+Status:
+COMPLETED
+
+Location:
+assistant/modules/crypto/
+
+
+
+
+## Crypto Service
+
+Completed:
+service.py
+
+
+Capabilities:
+
+- Hash generation
+- File hashing
+- Hash verification
+- Hash identification
+- XOR cipher
+- Caesar cipher
+- ROT13
+- ROT47
+- Frequency analysis
+
+
+---
+
+## Crypto Analyzer
+
+Completed:
+analyzer.py
+
+
+Capabilities:
+
+- Shannon entropy
+- Character analysis
+- Index of Coincidence
+- Frequency analysis
+- English scoring
+
+
+---
+
+## JWT Intelligence
+
+Completed:
+jwt.py
+
+
+Capabilities:
+
+- JWT parsing
+- Header decoding
+- Payload decoding
+- Algorithm detection
+- Signature analysis
+- Expiration analysis
+- Security warnings
+
+
+CLI:
+
+cyberatlas jwt <TOKEN>
+
+
+## Password Intelligence
+Completed:
+passwords.py
+
+Capabilities:
+
+Password strength analysis
+Entropy calculation
+Character class analysis
+Password scoring
+Pattern detection
+Mutation generation
+Password masking
+
+CLI:
+
+cyberatlas password <PASSWORD>
+
+
+
+# Wordlist Intelligence
+
+Completed:
+
+wordlists.py
+
+Capabilities:
+
+Wordlist loading
+Cleaning
+Deduplication
+Statistics
+Length filtering
+Keyword searching
+Mutation generation
+Combination generation
+
+CLI:
+
+cyberatlas wordlist <FILE>
+
+
+# HMAC Intelligence
+
+Status:
+
+COMPLETED
+
+Backend:
+
+assistant/modules/crypto/hmac.py
+
+Capabilities:
+
+HMAC generation
+HMAC verification
+Secure key generation
+Digest identification
+Key strength analysis
+
+Supported algorithms:
+
+MD5
+SHA1
+SHA224
+SHA256
+SHA384
+SHA512
+
+
+# HMAC CLI
+
+Completed:
+
+assistant/cli/hmac.py
+
+Architecture:
+
+Typer grouped command namespace.
+
+Commands:
+
+cyberatlas hmac generate
+
+cyberatlas hmac verify
+
+cyberatlas hmac keygen
+
+cyberatlas hmac identify
+
+cyberatlas hmac analyze-key
+
+Registration:
+
+assistant/cli/app.py
+
+Implemented:
+
+app.add_typer(
+    hmac_app,
+    name="hmac",
+)
+
+
+# Testing Status
+
+Current test count:
+
+105 passed
+
+Validated:
+
+Crypto services
+Crypto analysis
+JWT module
+Password module
+Wordlist module
+HMAC module
+CLI integration
+
+Command:
+
 pytest
 
-29 passed
+Result:
 
-0 failed
-```
+105 passed
 
----
 
-## Current Branch Goal
+# Current Repository Structure
 
-Deliver a production-quality HTB Toolkit before the Hack The Box competition.
+Important paths:
 
----
+assistant/
 
-## Current Module
+├── cli/
+│   ├── app.py
+│   ├── jwt.py
+│   ├── password.py
+│   ├── wordlist.py
+│   └── hmac.py
+│
+├── modules/
+│   └── crypto/
+│       ├── service.py
+│       ├── analyzer.py
+│       ├── jwt.py
+│       ├── passwords.py
+│       ├── wordlists.py
+│       └── hmac.py
 
-Crypto
 
-Status
 
-Not Started
+# Current Development Decision
 
----
+Next architecture improvement:
 
-## Remaining Modules
+Create Crypto command namespace.
 
-1. Crypto
-2. Networking
-3. Linux
-4. Forensics
-5. Reverse Engineering Enhancements
+Target:
 
----
+cyberatlas crypto
 
-## Standard Module Layout
+Structure:
 
-```
-assistant/modules/<module>/
+cyberatlas crypto
 
-    __init__.py
-    service.py
-```
+├── hash
+├── cipher
+├── hmac
+├── encoding
+├── certificate
+└── future crypto modules
 
-CLI
+Reason:
 
-```
-assistant/cli/<module>.py
-```
+Avoid CLI fragmentation as Crypto capabilities expand.
 
-Tests
 
-```
-tests/modules/test_<module>.py
-```
+Next Planned Work
 
----
+Priority order:
 
-## Standard Workflow
+Create crypto CLI parent namespace
+Move HMAC under crypto namespace
+Add AES intelligence module
+Add RSA intelligence module
+Add certificate analysis
+Add TLS inspection
+Development Rules
 
-Service
+Maintain:
 
-↓
+Python 3.13+
+Modular architecture
+CPU-friendly solutions
+Local-first execution
+Open-source approach
+Secure coding practices
+Complete tests for every module
+Documentation updates after milestones
 
-CLI
 
-↓
 
-Register CLI
-
-↓
-
-Manual Testing
-
-↓
-
-Unit Tests
-
-↓
-
-Compile
-
-↓
-
-Pytest
-
-↓
-
-Documentation
-
-↓
-
-Git Commit
-
----
-
-## Important Rules
-
-- Do not skip tests.
-- Do not break existing commands.
-- Keep modules independent.
-- Use Python standard library first.
-- Linux-first development.
-- CPU-friendly implementation.
-- Production-quality code.
-- Update documentation after every completed module.
-
----
-
-## Current Commands
-
-```
-cyberatlas doctor
-
-cyberatlas inspect
-
-cyberatlas workspace
-
-cyberatlas decode
-
-cyberatlas elf
-
-cyberatlas pe
-
-cyberatlas pcap
-
-cyberatlas web
-```
-
----
-
-## Current Test Summary
-
-Configuration
-
-- Loader
-- Manager
-- Validator
-
-Modules
-
-- Decode
-- ELF
-- PE
-- PCAP
-- Web
-
-Result
-
-```
-29 Passed
-
-0 Failed
-```
-
----
-
-## Resume Point
-
-Continue by implementing the Crypto module.
-
-Do not modify completed modules unless fixing bugs or improving existing functionality.
-
-Maintain backward compatibility.
-
-Keep all tests passing.
-
----
-
-## Session Checklist
-
-- [ ] Crypto Service
-- [ ] Crypto CLI
-- [ ] Register CLI
-- [ ] Manual Testing
-- [ ] Crypto Unit Tests
-- [ ] Compile
-- [ ] Pytest
-- [ ] Update Documentation
-- [ ] Git Commit
-- [ ] Continue with Networking
