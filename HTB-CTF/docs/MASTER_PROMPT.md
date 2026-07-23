@@ -8,145 +8,157 @@ When starting a new session:
 6. Update PROJECT_STATE.md.
 7. Update NEXT_SESSION.md before ending.
 
-# Changelog
+# CyberAtlas Master Prompt
 
-All notable changes to **CyberAtlas** are documented in this file.
+## Project
 
-The project follows a milestone-based development model focused on modular architecture, local-first execution, and production-quality cybersecurity tooling.
+CyberAtlas
+
+AI-assisted Cyber Security Assistant
+
+Repository:
+
+CyberAtlas
+
+License:
+
+Apache-2.0
+
+Python:
+
+3.13+
+
+Operating System:
+
+Linux First (Primary Target: Kali Linux)
+
+Development Model:
+
+- Local First
+- Offline First
+- CPU Friendly
+- Modular
+- Open Source
+- Production Quality
 
 ---
 
-# Version 0.1.0 (Development)
+# Vision
 
-## Core Foundation
+CyberAtlas is a professional cybersecurity platform designed to assist security professionals, students, researchers, bug bounty hunters, penetration testers, SOC analysts and CTF players.
 
-### Added
+The goal is NOT to replace existing security tools.
 
-- Initial CyberAtlas project structure
-- Python package architecture
+The goal is to orchestrate them, analyze their output, automate repetitive tasks and provide actionable intelligence through a consistent interface.
+
+CyberAtlas should become a daily driver for:
+
+- Hack The Box
+- TryHackMe
+- VulnHub
+- CTF competitions
+- Bug Bounty
+- Internal Penetration Testing
+- Security Research
+- SOC Operations
+- Threat Hunting
+- Malware Analysis
+- DFIR
+
+---
+
+# Core Principles
+
+Always maintain:
+
+- Clean architecture
+- Modular code
+- Type hints
+- Dataclasses where appropriate
+- Rich CLI output
 - Typer CLI framework
-- Rich terminal interface
-- Configuration management system
-- Logging framework
-- Environment validation
-- Workspace management
-- Project inspection utilities
+- Local execution
+- CPU friendly implementation
+- No cloud dependency
+- No GPU dependency
+- Beginner friendly
+- Production quality code
+
+Never sacrifice maintainability for shortcuts.
 
 ---
 
-## Configuration Framework
+# Current Project Status
 
-### Added
+Current milestone completed:
 
-- Configuration loader
-- Configuration manager
-- Configuration validator
-- YAML configuration support
-- Configuration caching
-- Configuration schema validation
+Crypto Intelligence Foundation
 
-Tests:
+Current validation:
 
-- Configuration loader
-- Configuration manager
-- Configuration validator
+pytest
+
+Result:
+
+105 passed
+
+Git status:
+
+Clean
+
+Latest milestone:
+
+HMAC Intelligence completed.
 
 ---
 
-## Decode Module
+# Completed Modules
 
-### Added
+## Configuration
 
-Common CTF decoding utilities.
+Completed:
 
-Capabilities:
+- Loader
+- Manager
+- Validator
+
+---
+
+## Decode
+
+Completed:
 
 - Base64
-- Base32
-- Base85
 - Hex
-- Binary
 - URL
 - ROT13
-- Automatic encoding detection
-
-CLI:
-
-```bash
-cyberatlas decode
-```
+- Common CTF decoding
 
 ---
 
 ## Binary Analysis
 
-### ELF
+Completed:
 
-Added:
-
-- ELF header analysis
-- Architecture detection
-- Entry point inspection
-
-CLI:
-
-```bash
-cyberatlas elf
-```
-
-### PE
-
-Added:
-
-- PE header analysis
-- Architecture detection
-- Entry point inspection
-
-CLI:
-
-```bash
-cyberatlas pe
-```
-
-### PCAP
-
-Added:
-
-- PCAP metadata analysis
-- Packet statistics
-- Capture information
-
-CLI:
-
-```bash
-cyberatlas pcap
-```
+- ELF analysis
+- PE analysis
+- PCAP analysis
 
 ---
 
-## Web Analysis
+## Web
 
-Added:
+Completed:
 
-Initial web target inspection module.
-
-CLI:
-
-```bash
-cyberatlas web
-```
+- Initial web analysis module
 
 ---
 
-# Crypto Intelligence Foundation
+## Crypto Intelligence
 
-Implemented the first complete cryptographic intelligence subsystem.
+Completed:
 
----
-
-## Crypto Service
-
-Added:
+### service.py
 
 - Hash generation
 - File hashing
@@ -156,101 +168,48 @@ Added:
 - Caesar cipher
 - ROT13
 - ROT47
-- Character frequency analysis
+- Frequency analysis
 
-Supported hashing algorithms:
-
-- MD5
-- SHA1
-- SHA224
-- SHA256
-- SHA384
-- SHA512
-
----
-
-## Crypto Analyzer
-
-Added:
+### analyzer.py
 
 - Shannon entropy
-- Character frequency analysis
+- Character analysis
 - Index of Coincidence
-- English language scoring
-- Statistical cryptographic analysis
+- English scoring
 
----
-
-## JWT Intelligence
-
-Added:
+### jwt.py
 
 - JWT parsing
 - Header decoding
 - Payload decoding
-- Signature inspection
-- Algorithm detection
+- Signature analysis
 - Expiration analysis
-- Security recommendations
+- Security warnings
 
-CLI:
-
-```bash
-cyberatlas jwt <TOKEN>
-```
-
----
-
-## Password Intelligence
-
-Added:
+### passwords.py
 
 - Password strength analysis
-- Entropy calculation
-- Character class analysis
+- Entropy
 - Password scoring
-- Pattern detection
-- Password masking
-- Password mutation generation
+- Mutation generation
 
-CLI:
+### wordlists.py
 
-```bash
-cyberatlas password <PASSWORD>
-```
-
----
-
-## Wordlist Intelligence
-
-Added:
-
-- Wordlist loading
+- Loading
 - Cleaning
-- Deduplication
 - Statistics
-- Length filtering
-- Keyword searching
+- Deduplication
+- Filtering
 - Mutation generation
 - Combination generation
 
-CLI:
-
-```bash
-cyberatlas wordlist <FILE>
-```
-
----
-
-## HMAC Intelligence
-
-Added:
+### hmac.py
 
 - HMAC generation
-- HMAC verification
+- Verification
 - Secure key generation
 - Digest identification
-- HMAC key analysis
+- Key analysis
 
 Supported algorithms:
 
@@ -261,35 +220,13 @@ Supported algorithms:
 - SHA384
 - SHA512
 
-CLI namespace:
-
-```bash
-cyberatlas hmac
-```
-
-Commands:
-
-```bash
-cyberatlas hmac generate
-
-cyberatlas hmac verify
-
-cyberatlas hmac keygen
-
-cyberatlas hmac identify
-
-cyberatlas hmac analyze-key
-```
-
 ---
 
-# CLI Improvements
+# Current CLI
 
-Introduced grouped Typer namespaces for advanced security modules.
+Current CLI structure:
 
-Current CLI:
-
-```text
+```
 cyberatlas
 
 ├── inspect
@@ -312,87 +249,201 @@ cyberatlas
 └── doctor
 ```
 
-This establishes the foundation for future grouped namespaces such as:
+Typer should remain the primary CLI framework.
 
-- recon
-- crypto
-- malware
-- forensics
+Rich should remain the terminal rendering library.
 
 ---
 
-# Testing
+# Development Rules
 
-Initial project:
+Every implementation must include:
+
+- Complete implementation
+- Complete tests
+- Type hints
+- Meaningful docstrings
+- Error handling
+- Rich CLI output where applicable
+
+Never provide pseudocode.
+
+Never provide partial implementations.
+
+Always provide complete copy-paste-ready files.
+
+---
+
+# Testing Requirements
+
+Every new module must include:
+
+- Unit tests
+- CLI tests (if applicable)
+
+Target:
 
 ```
-84 passing tests
-```
-
-After Wordlist Intelligence:
-
-```
-97 passing tests
-```
-
-After HMAC Intelligence:
-
-```
-105 passing tests
-```
-
-Current status:
-
-```bash
 pytest
 ```
 
-Result:
+Must pass before moving to the next milestone.
+
+---
+
+# Next Major Milestone
+
+Recon Intelligence Framework
+
+Purpose:
+
+Integrate existing cybersecurity tools through a unified abstraction layer.
+
+CyberAtlas should execute tools, parse their output, correlate findings and provide actionable recommendations.
+
+CyberAtlas should orchestrate—not simply wrap—external tools.
+
+---
+
+# Planned Recon Architecture
 
 ```
-105 passed
+assistant/modules/recon/
+
+service.py
+models.py
+parser.py
+report.py
+recommendations.py
+
+nmap.py
+http.py
+web.py
+dns.py
+osint.py
+```
+
+CLI:
+
+```
+assistant/cli/recon.py
 ```
 
 ---
 
-# Quality Goals
+# Planned Tool Integrations
 
-CyberAtlas continues to maintain:
+Priority 1
+
+- nmap
+- httpx
+- ffuf
+- curl
+
+Priority 2
+
+- nuclei
+
+Priority 3
+
+- amass
+- subfinder
+- whois
+
+Priority 4
+
+- strings
+- file
+- hexdump
+- binwalk
+
+Future
+
+- masscan
+- nikto
+- gobuster
+- feroxbuster
+- sqlmap
+- wfuzz
+
+---
+
+# Integration Philosophy
+
+Do NOT expose tools as simple wrappers.
+
+Instead:
+
+- Execute tools safely
+- Parse structured output
+- Normalize results
+- Correlate findings
+- Generate recommendations
+- Produce consistent Rich reports
+
+Example:
+
+Instead of:
+
+nmap
+
+CyberAtlas should provide:
+
+cyberatlas recon scan
+
+which internally performs:
+
+- Tool execution
+- Parsing
+- Analysis
+- Recommendations
+
+---
+
+# Coding Standards
+
+Maintain:
 
 - Python 3.13+
-- Local-first execution
-- CPU-friendly operation
-- Modular architecture
-- Rich CLI interface
-- Typer command framework
-- Complete unit testing
-- Complete CLI testing
-- Production-quality coding standards
+- PEP 8
+- Dataclasses
+- pathlib
+- subprocess safely
+- XML parsing
+- JSON parsing
+- Rich
+- Typer
+
+Avoid unnecessary dependencies.
 
 ---
 
-# Next Milestone
+# Documentation
 
-## Recon Intelligence Framework
+After every completed milestone update:
 
-The next major milestone introduces structured integration with external cybersecurity tools.
+- CHANGELOG.md
+- SESSION_CONTEXT.md
+- NEXT_SESSION.md
 
-Initial targets:
+Architecture documents should be updated only after significant architectural changes.
 
-- Nmap
-- HTTPX
-- FFUF
-- Nuclei
-- Amass
-- Subfinder
-- Whois
-- Curl
-- Strings
-- File
-- Binwalk
-- Hexdump
+---
 
-CyberAtlas will orchestrate these tools, normalize their output, correlate findings, and produce actionable security recommendations instead of acting as a simple wrapper.
+# Current Handoff
+
+Current project status:
+
+- Crypto Intelligence Foundation complete
+- HMAC Intelligence complete
+- CLI namespace implemented
+- 105 tests passing
+
+The next implementation begins with:
+
+assistant/modules/recon/service.py
+
+This becomes the execution layer for all external security tools used by CyberAtlas.
 
 ------------------------------------------------------------
 GOAL
