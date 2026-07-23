@@ -1,90 +1,136 @@
-# CyberAtlas Next Session
+# CyberAtlas – Next Development Session
 
-## Current Project State
+## Repository
 
-Project:
 CyberAtlas
 
+---
+
+# Project Status
 
 Current milestone:
 
+```
+Crypto Intelligence Foundation Expansion
+```
 
-Crypto Intelligence Foundation Expansion Completed
+Status:
 
+```
+Completed
+```
 
 Latest validation:
 
+```bash
 pytest
+```
 
 Result:
 
+```
 105 passed
+```
 
+Latest Git status:
 
-# Completed In Previous Session
+- Working tree clean
+- Changes committed
+- Changes pushed to GitHub
 
-## HMAC Intelligence Module
+---
 
-Completed:
+# Completed During Previous Session
 
-assistant/modules/crypto/hmac.py
-
-Implemented:
-
-HMAC generation
-HMAC verification
-Secure key generation
-Digest identification
-HMAC key analysis
-
-Supported:
-
-MD5
-SHA1
-SHA224
-SHA256
-SHA384
-SHA512
-
-
-## HMAC CLI Integration
+## Crypto Intelligence
 
 Completed:
 
-assistant/cli/hmac.py
+```
+assistant/modules/crypto/
+```
 
-Architecture:
+Modules:
 
-Typer grouped command namespace.
+- service.py
+- analyzer.py
+- jwt.py
+- passwords.py
+- wordlists.py
+- hmac.py
 
-Available commands:
+Capabilities:
 
-cyberatlas hmac generate
+### Hash Intelligence
 
-cyberatlas hmac verify
+- Hash generation
+- File hashing
+- Hash verification
+- Hash identification
 
-cyberatlas hmac keygen
+### Cipher Intelligence
 
-cyberatlas hmac identify
+- XOR
+- Caesar
+- ROT13
+- ROT47
 
-cyberatlas hmac analyze-key
+### Cryptographic Analysis
 
-Registered through:
+- Shannon entropy
+- Character frequency analysis
+- Index of Coincidence
+- English scoring
 
-assistant/cli/app.py
+### JWT Intelligence
 
-Implementation:
+- JWT parsing
+- Header decoding
+- Payload decoding
+- Signature analysis
+- Expiration analysis
+- Security warnings
 
-app.add_typer(
-    hmac_app,
-    name="hmac",
-)
+### Password Intelligence
 
+- Password scoring
+- Entropy calculation
+- Character analysis
+- Password masking
+- Mutation generation
 
-# Current CLI Architecture
+### Wordlist Intelligence
 
-Current:
+- Loading
+- Cleaning
+- Statistics
+- Deduplication
+- Filtering
+- Mutation generation
+- Combination generation
 
+### HMAC Intelligence
+
+- HMAC generation
+- HMAC verification
+- Secure key generation
+- Digest identification
+- HMAC key analysis
+
+Supported algorithms:
+
+- MD5
+- SHA1
+- SHA224
+- SHA256
+- SHA384
+- SHA512
+
+---
+
+# Current CLI
+
+```
 cyberatlas
 
 ├── inspect
@@ -105,162 +151,315 @@ cyberatlas
 │   └── analyze-key
 ├── version
 └── doctor
+```
 
-# Immediate Next Task
+---
 
-## Create Crypto Parent Namespace
+# Current Test Status
 
-Goal:
-
-Improve scalability before adding more cryptographic modules.
-
-Target command:
-
-cyberatlas crypto
-
-Future structure:
-
-cyberatlas crypto
-
-├── hash
-├── cipher
-├── hmac
-├── encoding
-├── certificate
-├── aes
-├── rsa
-└── tls
-
-Reason:
-
-The crypto subsystem will continue expanding. A parent namespace avoids dozens of top-level commands.
-
-
-## Planned Refactor
-
-Move:
-
-Current:
-
-cyberatlas hmac
-
-Target:
-
-cyberatlas crypto hmac
-
-Future examples:
-
-cyberatlas crypto hash
-
-cyberatlas crypto cipher
-
-cyberatlas crypto aes
-
-cyberatlas crypto rsa
-
-cyberatlas crypto certificate
-
-
-
-# Next Implementation Steps
-
-## Step 1
-
-Create:
-
-assistant/cli/crypto.py
-
-Purpose:
-
-Crypto command namespace.
-
-
-## Step 2
-
-Move HMAC registration:
-
-Before:
-
-app.add_typer(
-    hmac_app,
-    name="hmac",
-)
-
-After:
-
-crypto
- |
- └── hmac
-
-
-## Step 3
-
-Update CLI tests:
-
-Create:
-
-tests/modules/test_crypto_cli.py
-
-Validate:
-
-crypto namespace exists
-hmac is available under crypto
-existing HMAC commands work
-
-
-## Step 4
-
-Run:
-
+```
 pytest
+```
 
-Expected:
+Result:
 
-105+ passed
+```
+105 passed
+```
 
+The project must remain in a passing state after every implementation.
 
-# After CLI Refactor
+---
 
-Continue Crypto Expansion:
+# Next Major Milestone
 
-Priority:
+## Recon Intelligence Framework
 
-AES module
-RSA module
-Certificate analysis
-TLS inspection
-Encoding intelligence
+This is now the highest development priority.
 
+CyberAtlas should begin orchestrating external cybersecurity tools rather than implementing isolated functionality.
 
-# Development Requirements
+The objective is to:
 
-Always maintain:
+- Execute tools safely
+- Parse structured output
+- Normalize results
+- Correlate findings
+- Produce actionable recommendations
+- Maintain a consistent CyberAtlas experience
 
-Python 3.13+
-Typer CLI style
-Rich terminal output
-Local-first execution
-CPU-friendly implementation
-Modular architecture
-Complete unit tests
-Documentation updates after milestones
+---
 
+# Initial Recon Tool Targets
 
-# Current Handoff Point
+Priority 1
 
-The next session should start with:
+- Nmap
+- HTTPX
+- FFUF
+- Curl
 
-Create assistant/cli/crypto.py
+Priority 2
 
-Then migrate:
+- Nuclei
 
-cyberatlas hmac
+Priority 3
 
-to:
+- Amass
+- Subfinder
+- Whois
 
-cyberatlas crypto hmac
+Priority 4
 
-without breaking existing functionality.
+- Strings
+- File
+- Binwalk
+- Hexdump
 
+Future integrations:
 
+- Masscan
+- Gobuster
+- Feroxbuster
+- Nikto
+- SQLMap
+- Wfuzz
 
+---
+
+# Planned Module Layout
+
+```
+assistant/modules/recon/
+
+__init__.py
+models.py
+service.py
+parser.py
+report.py
+recommendations.py
+
+nmap.py
+http.py
+web.py
+dns.py
+osint.py
+```
+
+CLI:
+
+```
+assistant/cli/recon.py
+```
+
+Tests:
+
+```
+tests/modules/test_recon_service.py
+```
+
+---
+
+# Development Order
+
+## Phase 1 – Recon Foundation
+
+Implement:
+
+```
+assistant/modules/recon/service.py
+```
+
+Responsibilities:
+
+- Safe subprocess execution
+- Tool discovery
+- Version detection
+- Timeout handling
+- Structured execution results
+- Shared execution helpers
+
+This becomes the common execution layer for all external tools.
+
+---
+
+## Phase 2 – Nmap
+
+Implement:
+
+```
+assistant/modules/recon/nmap.py
+```
+
+Capabilities:
+
+- Execute scans
+- Parse XML output
+- Detect open ports
+- Detect services
+- Detect versions
+- Generate structured results
+
+---
+
+## Phase 3 – HTTP Enumeration
+
+Integrate:
+
+- HTTPX
+- Curl
+
+Capabilities:
+
+- Title extraction
+- Status code analysis
+- Header inspection
+- Technology fingerprinting
+
+---
+
+## Phase 4 – Content Discovery
+
+Integrate:
+
+- FFUF
+
+Capabilities:
+
+- Directory enumeration
+- Virtual host enumeration
+- Result filtering
+- Response statistics
+
+---
+
+## Phase 5 – Vulnerability Intelligence
+
+Integrate:
+
+- Nuclei
+
+Capabilities:
+
+- Template execution
+- Severity grouping
+- CVE summaries
+- Result correlation
+
+---
+
+## Phase 6 – OSINT
+
+Integrate:
+
+- Amass
+- Subfinder
+- Whois
+
+Capabilities:
+
+- Passive subdomain discovery
+- Active enumeration (optional)
+- WHOIS parsing
+- Asset correlation
+
+---
+
+## Phase 7 – Binary Utilities
+
+Integrate:
+
+- File
+- Strings
+- Binwalk
+- Hexdump
+
+Capabilities:
+
+- Binary identification
+- String extraction
+- Firmware inspection
+- Hex preview
+
+---
+
+# Design Requirements
+
+CyberAtlas must not become a collection of command wrappers.
+
+Instead it should:
+
+- Execute external tools
+- Parse their output
+- Correlate findings
+- Recommend next actions
+- Present unified Rich reports
+
+Example:
+
+Instead of:
+
+```bash
+nmap -sV 10.10.10.10
+```
+
+CyberAtlas should provide:
+
+```bash
+cyberatlas recon scan 10.10.10.10
+```
+
+Internally it may execute:
+
+- nmap
+- httpx
+- ffuf
+- nuclei
+
+while presenting a single structured report.
+
+---
+
+# Development Rules
+
+Continue following existing standards:
+
+- Python 3.13+
+- Local-first execution
+- CPU-friendly implementation
+- Modular architecture
+- Rich CLI
+- Typer CLI
+- Type hints
+- Dataclasses
+- Comprehensive error handling
+- Complete unit tests
+- CLI tests for user-facing commands
+
+Never provide:
+
+- Pseudocode
+- Partial implementations
+- Incomplete files
+
+Always provide complete copy-paste-ready files.
+
+---
+
+# First Task for the Next Session
+
+Begin with:
+
+```
+assistant/modules/recon/service.py
+```
+
+Deliverables:
+
+- Complete implementation
+- Unit tests
+- Integration with existing project architecture
+- No regressions
+- All tests passing
+
+Only after the Recon execution layer is complete should additional tool integrations begin.
