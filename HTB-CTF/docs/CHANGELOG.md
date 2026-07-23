@@ -1,54 +1,140 @@
-# CyberAtlas Changelog
+# Changelog
 
-All notable changes to CyberAtlas are documented here.
+All notable changes to **CyberAtlas** are documented in this file.
 
-The project follows incremental development with focus on:
-
-- Cybersecurity learning
-- HTB / CTF workflows
-- Penetration testing support
-- SOC operations
-- Security automation
-- Local-first security tooling
-
+The project follows a milestone-based development model focused on modular architecture, local-first execution, and production-quality cybersecurity tooling.
 
 ---
 
-# Version 0.1.0 - Development Release
+# Version 0.1.0 (Development)
 
-## Added
+## Core Foundation
 
+### Added
 
-## Core Project Foundation
-
-Implemented initial CyberAtlas architecture:
-
-- Modular Python package structure
-- CLI framework using Typer
+- Initial CyberAtlas project structure
+- Python package architecture
+- Typer CLI framework
 - Rich terminal interface
 - Configuration management system
 - Logging framework
 - Environment validation
-- Local-first architecture
+- Workspace management
+- Project inspection utilities
 
+---
 
-## Configuration System
+## Configuration Framework
 
-Implemented:
+### Added
 
 - Configuration loader
 - Configuration manager
 - Configuration validator
-- YAML-based configuration handling
-- Configuration tests
+- YAML configuration support
+- Configuration caching
+- Configuration schema validation
 
+Tests:
 
-## Crypto Intelligence Foundation
+- Configuration loader
+- Configuration manager
+- Configuration validator
 
-Implemented initial cryptography intelligence capabilities.
+---
 
+## Decode Module
 
-### Hash Operations
+### Added
+
+Common CTF decoding utilities.
+
+Capabilities:
+
+- Base64
+- Base32
+- Base85
+- Hex
+- Binary
+- URL
+- ROT13
+- Automatic encoding detection
+
+CLI:
+
+```bash
+cyberatlas decode
+```
+
+---
+
+## Binary Analysis
+
+### ELF
+
+Added:
+
+- ELF header analysis
+- Architecture detection
+- Entry point inspection
+
+CLI:
+
+```bash
+cyberatlas elf
+```
+
+### PE
+
+Added:
+
+- PE header analysis
+- Architecture detection
+- Entry point inspection
+
+CLI:
+
+```bash
+cyberatlas pe
+```
+
+### PCAP
+
+Added:
+
+- PCAP metadata analysis
+- Packet statistics
+- Capture information
+
+CLI:
+
+```bash
+cyberatlas pcap
+```
+
+---
+
+## Web Analysis
+
+Added:
+
+Initial web target inspection module.
+
+CLI:
+
+```bash
+cyberatlas web
+```
+
+---
+
+# Crypto Intelligence Foundation
+
+Implemented the first complete cryptographic intelligence subsystem.
+
+---
+
+## Crypto Service
 
 Added:
 
@@ -56,7 +142,105 @@ Added:
 - File hashing
 - Hash verification
 - Hash identification
+- XOR cipher
+- Caesar cipher
+- ROT13
+- ROT47
+- Character frequency analysis
 
+Supported hashing algorithms:
+
+- MD5
+- SHA1
+- SHA224
+- SHA256
+- SHA384
+- SHA512
+
+---
+
+## Crypto Analyzer
+
+Added:
+
+- Shannon entropy
+- Character frequency analysis
+- Index of Coincidence
+- English language scoring
+- Statistical cryptographic analysis
+
+---
+
+## JWT Intelligence
+
+Added:
+
+- JWT parsing
+- Header decoding
+- Payload decoding
+- Signature inspection
+- Algorithm detection
+- Expiration analysis
+- Security recommendations
+
+CLI:
+
+```bash
+cyberatlas jwt <TOKEN>
+```
+
+---
+
+## Password Intelligence
+
+Added:
+
+- Password strength analysis
+- Entropy calculation
+- Character class analysis
+- Password scoring
+- Pattern detection
+- Password masking
+- Password mutation generation
+
+CLI:
+
+```bash
+cyberatlas password <PASSWORD>
+```
+
+---
+
+## Wordlist Intelligence
+
+Added:
+
+- Wordlist loading
+- Cleaning
+- Deduplication
+- Statistics
+- Length filtering
+- Keyword searching
+- Mutation generation
+- Combination generation
+
+CLI:
+
+```bash
+cyberatlas wordlist <FILE>
+```
+
+---
+
+## HMAC Intelligence
+
+Added:
+
+- HMAC generation
+- HMAC verification
+- Secure key generation
+- Digest identification
+- HMAC key analysis
 
 Supported algorithms:
 
@@ -67,101 +251,15 @@ Supported algorithms:
 - SHA384
 - SHA512
 
-
-### Cipher Operations
-
-Added:
-
-- XOR cipher
-- Caesar cipher
-- ROT13
-- ROT47
-
-
-### Cryptographic Analysis
-
-Added:
-
-- Shannon entropy calculation
-- Character frequency analysis
-- Index of Coincidence
-- English language scoring
-
-
-### JWT Intelligence
-
-Added:
-
-- JWT parsing
-- Header decoding
-- Payload decoding
-- Algorithm detection
-- Signature analysis
-- Expiration analysis
-- Security warnings
-
-
-CLI:
-
-cyberatlas jwt <TOKEN>
-
-
-# Password Intelligence
-
-Added:
-
-Password strength analysis
-Entropy calculation
-Character class detection
-Password scoring
-Pattern detection
-Mutation generation
-Password masking
-
-CLI:
-cyberatlas password <PASSWORD>
-
-
-# Wordlist Intelligence
-
-Added:
-
-Wordlist loading
-Cleaning
-Deduplication
-Statistics
-Length filtering
-Keyword searching
-Mutation generation
-Combination generation
-
-CLI:
-cyberatlas wordlist <FILE>
-
-
-# HMAC Intelligence
-
-Added:
-
-HMAC generation
-HMAC verification
-Secure HMAC key generation
-Digest algorithm identification
-HMAC key analysis
-
-Supported algorithms:
-
-MD5
-SHA1
-SHA224
-SHA256
-SHA384
-SHA512
-
 CLI namespace:
+
+```bash
 cyberatlas hmac
+```
 
 Commands:
+
+```bash
 cyberatlas hmac generate
 
 cyberatlas hmac verify
@@ -171,17 +269,26 @@ cyberatlas hmac keygen
 cyberatlas hmac identify
 
 cyberatlas hmac analyze-key
+```
 
-
+---
 
 # CLI Improvements
 
-Added grouped command architecture for advanced security modules.
+Introduced grouped Typer namespaces for advanced security modules.
 
-Current structure:
+Current CLI:
 
+```text
 cyberatlas
 
+├── inspect
+├── workspace
+├── decode
+├── elf
+├── pe
+├── pcap
+├── web
 ├── jwt
 ├── password
 ├── wordlist
@@ -193,51 +300,86 @@ cyberatlas
 │   └── analyze-key
 ├── version
 └── doctor
+```
 
+This establishes the foundation for future grouped namespaces such as:
 
-## Testing
+- recon
+- crypto
+- malware
+- forensics
 
-Expanded automated testing:
+---
 
-Previous:
-97 tests
+# Testing
 
-Current:
-105 tests passed
+Initial project:
 
+```
+84 passing tests
+```
 
-Test coverage includes:
+After Wordlist Intelligence:
 
-Configuration modules
-Crypto services
-Crypto analysis
-JWT intelligence
-Password intelligence
-Wordlist intelligence
-HMAC intelligence
-CLI commands
+```
+97 passing tests
+```
 
+After HMAC Intelligence:
 
+```
+105 passing tests
+```
 
-# Development Notes
+Current status:
 
-CyberAtlas remains focused on:
+```bash
+pytest
+```
 
-Python 3.13+
-CPU-friendly execution
-Offline-first workflows
-Local security tooling
-Modular architecture
-Open-source development
+Result:
 
-Future planned modules:
+```
+105 passed
+```
 
-AES analysis
-RSA intelligence
-Certificate analysis
-TLS inspection
-CTF automation
-Threat hunting workflows
-SOC automation
+---
 
+# Quality Goals
 
+CyberAtlas continues to maintain:
+
+- Python 3.13+
+- Local-first execution
+- CPU-friendly operation
+- Modular architecture
+- Rich CLI interface
+- Typer command framework
+- Complete unit testing
+- Complete CLI testing
+- Production-quality coding standards
+
+---
+
+# Next Milestone
+
+## Recon Intelligence Framework
+
+The next major milestone introduces structured integration with external cybersecurity tools.
+
+Initial targets:
+
+- Nmap
+- HTTPX
+- FFUF
+- Nuclei
+- Amass
+- Subfinder
+- Whois
+- Curl
+- Strings
+- File
+- Binwalk
+- Hexdump
+
+CyberAtlas will orchestrate these tools, normalize their output, correlate findings, and produce actionable security recommendations instead of acting as a simple wrapper.
